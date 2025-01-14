@@ -25,22 +25,18 @@ public class AuthService {
         User user = userRepository.findByUsername(authRequest.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        // Überprüfen, ob das Passwort übereinstimmt
         if (!passwordEncoder.matches(authRequest.getPassword(), user.getPassword())) {
             throw new RuntimeException("Invalid credentials");
         }
 
-        // Token generieren
-        String token = jwtUtil.generateToken(user.getUsername(), user.getRole());
-
-        return new AuthResponse(token, user.getUsername(), user.getRole());
+        String token = jwtUtil.generateToken(user.getUsername());
+        return new AuthResponse(token, user.getUsername());
     }
 
     public void register(AuthRequest authRequest) {
-        // Benutzer erstellen und speichern
         User user = new User();
         user.setUsername(authRequest.getUsername());
-        user.setPassword(passwordEncoder.encode(authRequest.getPassword())); // Passwort verschlüsseln
+        user.setPassword(passwordEncoder.encode(authRequest.getPassword()));
         user.setRole("ROLE_USER");
         userRepository.save(user);
     }

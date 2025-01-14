@@ -1,10 +1,20 @@
 package com.forum.dto;
 
 public class AuthRequest {
+
     private String username;
     private String password;
 
-    // Getter und Setter
+    // Constructor
+    public AuthRequest() {
+    }
+
+    public AuthRequest(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    // Getter and Setter
     public String getUsername() {
         return username;
     }

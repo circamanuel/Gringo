@@ -1,3 +1,4 @@
+// SecurityConfig.java
 package com.forum.security;
 
 import org.springframework.context.annotation.Bean;
@@ -12,22 +13,15 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable() // Deaktiviert CSRF-Schutz (nur für Entwicklung, in Produktion aktivieren)
-                .authorizeHttpRequests()
-                // Öffentliche Routen, die keine Authentifizierung erfordern
-                .requestMatchers("/api/auth/**").permitAll()
-                // Alle anderen Routen erfordern Authentifizierung
-                .anyRequest().authenticated()
-                .and()
-                // Standardmäßige HTTP-Basis-Authentifizierung
-                .httpBasic();
+        http.csrf().disable()
+                .authorizeHttpRequests(authorize -> authorize
+                        .anyRequest().permitAll()); // Allow all requests without authentication
 
         return http.build();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // BCryptPasswordEncoder wird verwendet, um Passwörter sicher zu hashen
         return new BCryptPasswordEncoder();
     }
 }
