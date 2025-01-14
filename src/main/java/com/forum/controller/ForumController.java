@@ -1,9 +1,7 @@
 package com.forum.controller;
 
-import com.forum.exception.UnauthorizedException;
 import com.forum.models.Forum;
 import com.forum.service.ForumService;
-import com.forum.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -16,65 +14,63 @@ import java.util.List;
 public class ForumController {
 
     private final ForumService forumService;
-    private final UserService userService;
 
-    public ForumController(ForumService forumService, UserService userService) {
+    public ForumController(ForumService forumService) {
         this.forumService = forumService;
-        this.userService = userService;
     }
 
-    // GET: Alle Foren abrufen
+    // GET: Fetch all forums
     @GetMapping
     public ResponseEntity<List<Forum>> getAllForums() {
         return ResponseEntity.ok(forumService.getAllForums());
     }
 
-    // GET: Ein Forum abrufen
+    // GET: Fetch a specific forum by ID
     @GetMapping("/{id}")
     public ResponseEntity<Forum> getForumById(@PathVariable Long id) {
         return ResponseEntity.ok(forumService.getForumById(id));
     }
 
-    // POST: Ein neues Forum erstellen
+    // POST: Create a new forum
     @PostMapping
     public ResponseEntity<Forum> createForum(@RequestBody Forum forum, Authentication authentication) {
-        forum.setCreatedBy(authentication.getName());
+        String username = (authentication != null) ? authentication.getName() : "Anonymous";
+        forum.setCreatedBy(username);
         return new ResponseEntity<>(forumService.createForum(forum), HttpStatus.CREATED);
     }
 
-    // PUT: Ein bestehendes Forum aktualisieren
+    // PUT: Update an existing forum
     @PutMapping("/{id}")
     public ResponseEntity<Forum> updateForum(@PathVariable Long id, @RequestBody Forum forum, Authentication authentication) {
         Forum existingForum = forumService.getForumById(id);
 
-        // Nur der Ersteller oder ein Admin darf das Forum aktualisieren
-        if (!existingForum.getCreatedBy().equals(authentication.getName()) && !isAdmin(authentication)) {
-            throw new UnauthorizedException("You are not authorized to update this forum.");
+        // Only allow the creator or admin to update the forum
+        if (authentication == null || (!existingForum.getCreatedBy().equals(authentication.getName()) && !isAdmin(authentication))) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
 
         existingForum.setTitle(forum.getTitle());
         existingForum.setDescription(forum.getDescription());
-
-        return ResponseEntity.ok(forumService.createForum(existingForum));
+        return ResponseEntity.ok(forumService.updateForum(existingForum));
     }
 
-    // DELETE: Ein Forum löschen
+    // DELETE: Delete a forum
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteForum(@PathVariable Long id, Authentication authentication) {
         Forum forum = forumService.getForumById(id);
 
-        // Nur der Ersteller oder ein Admin darf das Forum löschen
-        if (!forum.getCreatedBy().equals(authentication.getName()) && !isAdmin(authentication)) {
-            throw new UnauthorizedException("You are not authorized to delete this forum.");
+        // Only allow the creator or admin to delete the forum
+        if (authentication == null || (!forum.getCreatedBy().equals(authentication.getName()) && !isAdmin(authentication))) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
 
         forumService.deleteForum(id);
         return ResponseEntity.noContent().build();
     }
 
-    // Helper-Methode, um zu prüfen, ob der aktuelle Benutzer ein Admin ist
+    // Helper method to check if the user is an admin
     private boolean isAdmin(Authentication authentication) {
-        return authentication.getAuthorities().stream()
+        return authentication != null && authentication.getAuthorities().stream()
                 .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
     }
 }
