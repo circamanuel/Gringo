@@ -4,6 +4,7 @@ import com.forum.dto.AuthRequest;
 import com.forum.dto.AuthResponse;
 import com.forum.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,4 +23,10 @@ public class AuthController {
     public void register(@RequestBody AuthRequest authRequest) {
         authService.register(authRequest); // Benutzer registrieren
     }
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout() {
+        // Optional: Add logic to invalidate tokens if stored in a blacklist.
+        return ResponseEntity.ok("Logged out successfully");
+    }
 }
+
