@@ -2,16 +2,26 @@ package com.forum.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import java.util.Date;
 
 @Component
 public class JwtUtil {
 
-    private final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Generate a secure key
+    private final Key secretKey;
+
+    // Load the secret key from application properties or use a default one
+    public JwtUtil(@Value("${jwt.secret:default-secret-key-for-testing-only}") String secret) {
+        // Ensure the key is at least 32 characters for HS256
+        if (secret.length() < 32) {
+            throw new IllegalArgumentException("JWT secret key must be at least 32 characters long");
+        }
+        this.secretKey = new SecretKeySpec(secret.getBytes(), SignatureAlgorithm.HS256.getJcaName());
+    }
 
     public String generateToken(String username) {
         return Jwts.builder()

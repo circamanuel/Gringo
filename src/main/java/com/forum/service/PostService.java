@@ -9,6 +9,8 @@ import com.forum.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostService {
 
@@ -18,6 +20,7 @@ public class PostService {
     @Autowired
     private UserRepository userRepository;
 
+    // Create a new post
     public Post createPost(PostDTO postDTO) {
         User user = userRepository.findByUsername(postDTO.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -25,11 +28,11 @@ public class PostService {
         Post post = new Post();
         post.setContent(postDTO.getContent());
         post.setUser(user);
-        // Assuming Forum is already fetched
-        post.setForum(new Forum(postDTO.getForumId()));
+        post.setForum(new Forum(postDTO.getForumId())); // Assuming Forum is already fetched
         return postRepository.save(post);
     }
 
+    // Update an existing post
     public Post updatePost(Long postId, PostDTO postDTO) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new RuntimeException("Post not found"));
@@ -45,7 +48,32 @@ public class PostService {
         return postRepository.save(post);
     }
 
+    // Delete a post
     public void deletePost(Long postId) {
         postRepository.deleteById(postId);
+    }
+
+    // Get all posts
+    public List<Post> getAllPosts() {
+        return postRepository.findAll();
+    }
+
+    // Get posts by forum
+    public List<Post> getPostsByForum(Long forumId) {
+        Forum forum = new Forum(forumId); // Assuming Forum has a constructor accepting ID
+        return postRepository.findByForum(forum);
+    }
+
+    // Get posts by user
+    public List<Post> getPostsByUser(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        return postRepository.findByUser(user);
+    }
+
+    // Get a specific post by ID
+    public Post getPostById(Long postId) {
+        return postRepository.findById(postId)
+                .orElseThrow(() -> new RuntimeException("Post not found"));
     }
 }
