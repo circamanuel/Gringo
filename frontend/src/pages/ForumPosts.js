@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchPostsByForum, createPost } from '../services/api';
+import '../styles/App.css'; // Importiere die CSS-Datei
 
 const ForumPosts = () => {
     const { forumId } = useParams();
@@ -33,24 +34,25 @@ const ForumPosts = () => {
     };
 
     return (
-        <div>
-            <h1>Posts</h1>
-            <ul>
+        <div className="forum-posts-container">
+            <h1 className="forum-posts-title">Posts</h1>
+            <ul className="forum-posts-list">
                 {posts.map((post) => (
-                    <li key={post.id}>
-                        <p>{post.content}</p>
-                        <small>Created by: {post.createdBy}</small>
+                    <li key={post.id} className="forum-post-item">
+                        <p className="forum-post-content">{post.content}</p>
+                        <small className="forum-post-author">Created by: {post.createdBy}</small>
                     </li>
                 ))}
             </ul>
-            <form onSubmit={handlePostSubmit}>
+            <form onSubmit={handlePostSubmit} className="forum-post-form">
                 <textarea
+                    className="forum-post-textarea"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     placeholder="Write a post..."
                     required
                 />
-                <button type="submit">Submit</button>
+                <button type="submit" className="forum-post-button">Submit</button>
             </form>
         </div>
     );

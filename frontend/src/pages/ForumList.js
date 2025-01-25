@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/App.css'; // Importiere die CSS-Datei
 
 function ForumList() {
     const [forums, setForums] = useState([]);
@@ -21,10 +22,10 @@ function ForumList() {
     }, []);
 
     return (
-        <div>
+        <div className="forum-list">
             <h1>Forums</h1>
             {forums.map((forum) => (
-                <div key={forum.id}>
+                <div key={forum.id} className="forum-item">
                     <h2>{forum.title}</h2>
                     <p>{forum.description}</p>
                     <Link to={`/forums/${forum.id}`}>View Details</Link>

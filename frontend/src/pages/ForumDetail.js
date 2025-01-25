@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import '../styles/App.css'; // Importiere die CSS-Datei
 
 function ForumDetail() {
     const { forumId } = useParams();
@@ -48,18 +49,25 @@ function ForumDetail() {
     };
 
     return (
-        <div>
+        <div className="forum-detail">
             <h1>Forum Details</h1>
             <h2>Posts</h2>
-            {posts.map((post) => (
-                <div key={post.id}>
-                    <p>{post.content}</p>
-                    <p>by {post.username}</p>
-                </div>
-            ))}
+            <div className="posts-container">
+                {posts.map((post) => (
+                    <div key={post.id} className="post-item">
+                        <p className="post-content">{post.content}</p>
+                        <p className="post-username">by {post.username}</p>
+                    </div>
+                ))}
+            </div>
             <h2>Neuen Post erstellen</h2>
-            <textarea value={newPost} onChange={(e) => setNewPost(e.target.value)} placeholder="Schreibe deinen Post..." />
-            <button onClick={handlePostSubmit}>Post erstellen</button>
+            <textarea
+                value={newPost}
+                onChange={(e) => setNewPost(e.target.value)}
+                placeholder="Schreibe deinen Post..."
+                className="post-textarea"
+            />
+            <button onClick={handlePostSubmit} className="post-button">Post erstellen</button>
         </div>
     );
 }
