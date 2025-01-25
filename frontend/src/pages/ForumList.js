@@ -1,63 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { fetchPostsByForum, createPost } from '../services/api';
+import { Link } from 'react-router-dom';
+import '../styles/App.css'; // Importiere die CSS-Datei
 
-const PostList = () => {
-    const { forumId } = useParams();
-    const [posts, setPosts] = useState([]);
-    const [content, setContent] = useState('');
+function ForumList() {
+    const [forums, setForums] = useState([]);
 
     useEffect(() => {
-        const getPosts = async () => {
-            try {
-                const postsData = await fetchPostsByForum(forumId);
-                setPosts(postsData);
-            } catch (error) {
-                console.error('Error fetching posts:', error);
+        const fetchForums = async () => {
+            const token = localStorage.getItem('token');
+            const response = await fetch('http://localhost:8080/api/forums', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setForums(data);
             }
         };
-
-        getPosts();
-    }, [forumId]);
-
-    const handlePostSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await createPost({
-                forumId: parseInt(forumId, 10),
-                content: content.trim(),
-                username: localStorage.getItem('username'),
-            });
-            setContent('');
-            const updatedPosts = await fetchPostsByForum(forumId);
-            setPosts(updatedPosts);
-        } catch (error) {
-            console.error('Error creating post:', error);
-        }
-    };
+        fetchForums();
+    }, []);
 
     return (
-        <div>
-            <h1>Posts in Forum {forumId}</h1>
-            <ul>
-                {posts.map((post) => (
-                    <li key={post.id}>
-                        <p>{post.content}</p>
-                        <small>Created by: {post.user.username}</small>
-                    </li>
-                ))}
-            </ul>
-            <form onSubmit={handlePostSubmit}>
-                <textarea
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                    placeholder="Write a post..."
-                    required
-                />
-                <button type="submit">Submit Post</button>
-            </form>
+        <div className="forum-list">
+            <h1>Forums</h1>
+            {forums.map((forum) => (
+                <div key={forum.id} className="forum-item">
+                    <h2>{forum.title}</h2>
+                    <p>{forum.description}</p>
+                    <Link to={`/forums/${forum.id}`}>View Details</Link>
+                </div>
+            ))}
         </div>
     );
-};
+}
 
-export default PostList;
+export default ForumList;

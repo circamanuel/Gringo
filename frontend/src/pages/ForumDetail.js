@@ -1,48 +1,75 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchPostsByForum, createPost } from '../services/api';
+import '../styles/App.css'; // Importiere die CSS-Datei
 
-const ForumDetails = () => {
+function ForumDetail() {
     const { forumId } = useParams();
     const [posts, setPosts] = useState([]);
-    const [content, setContent] = useState('');
+    const [newPost, setNewPost] = useState('');
 
     useEffect(() => {
-        const loadPosts = async () => {
-            const data = await fetchPostsByForum(forumId);
-            setPosts(data);
+        const fetchPosts = async () => {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`http://localhost:8080/api/posts?forumId=${forumId}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setPosts(data);
+            }
         };
-        loadPosts();
+        fetchPosts();
     }, [forumId]);
 
-    const handlePostCreation = async () => {
-        await createPost({ content, forumId });
-        setContent('');
-        const updatedPosts = await fetchPostsByForum(forumId);
-        setPosts(updatedPosts);
+    const handlePostSubmit = async () => {
+        const token = localStorage.getItem('token');
+        const response = await fetch('http://localhost:8080/api/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+                forumId: parseInt(forumId, 10),
+                content: newPost,
+                username: 'testuser', // Dies sollte idealerweise dynamisch sein
+            }),
+        });
+
+        if (response.ok) {
+            alert('Post erfolgreich erstellt!');
+            setNewPost('');
+            const newPostResponse = await response.json();
+            setPosts((prevPosts) => [...prevPosts, newPostResponse]);
+        } else {
+            alert('Fehler beim Erstellen des Posts');
+        }
     };
 
     return (
-        <div>
-            <h1>Forum Posts</h1>
-            <ul>
+        <div className="forum-detail">
+            <h1>Forum Details</h1>
+            <h2>Posts</h2>
+            <div className="posts-container">
                 {posts.map((post) => (
-                    <li key={post.id}>
-                        <p>{post.content}</p>
-                        <small>Posted by: {post.user.username}</small>
-                    </li>
+                    <div key={post.id} className="post-item">
+                        <p className="post-content">{post.content}</p>
+                        <p className="post-username">by {post.username}</p>
+                    </div>
                 ))}
-            </ul>
-            <div>
-                <textarea
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                    placeholder="Write a post..."
-                />
-                <button onClick={handlePostCreation}>Post</button>
             </div>
+            <h2>Neuen Post erstellen</h2>
+            <textarea
+                value={newPost}
+                onChange={(e) => setNewPost(e.target.value)}
+                placeholder="Schreibe deinen Post..."
+                className="post-textarea"
+            />
+            <button onClick={handlePostSubmit} className="post-button">Post erstellen</button>
         </div>
     );
-};
+}
 
-export default ForumDetails;
+export default ForumDetail;

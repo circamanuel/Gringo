@@ -1,34 +1,28 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ForumList from './pages/ForumList';
+import ForumDetail from './pages/ForumDetail';
 import CreateForum from './pages/CreateForum';
-import PostList from './pages/PostList';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import NavBar from './components/NavBar'; // NavBar importieren
+import './styles/App.css';
 
-const App = () => {
-    const isAuthenticated = !!localStorage.getItem('token');
-
+function App() {
     return (
         <Router>
-            <NavBar />
-            <Routes>
-                <Route path="/forums" element={<ForumList />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route
-                    path="/create-forum"
-                    element={isAuthenticated ? <CreateForum /> : <Navigate to="/login" />}
-                />
-                <Route
-                    path="/posts/:forumId"
-                    element={isAuthenticated ? <PostList /> : <Navigate to="/login" />}
-                />
-                <Route path="*" element={<Navigate to="/forums" />} />
-            </Routes>
+            <div>
+                <NavBar /> {/* NavBar wird über dem Routing eingefügt */}
+                <Routes>
+                    <Route path="/forums" element={<ForumList />} />
+                    <Route path="/forums/new" element={<CreateForum />} />
+                    <Route path="/forums/:forumId" element={<ForumDetail />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                </Routes>
+            </div>
         </Router>
     );
-};
+}
 
 export default App;
