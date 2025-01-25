@@ -1,84 +1,67 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCommentsByForum, addCommentToForum, fetchPostsByForum } from '../services/api';
 
-const ForumDetail = () => {
-    const { forumId } = useParams(); // Forum-ID aus der URL abrufen
-    const [comments, setComments] = useState([]);
-    const [newComment, setNewComment] = useState('');
+function ForumDetail() {
+    const { forumId } = useParams();
     const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [newPost, setNewPost] = useState('');
 
-    // Forum-Daten (Beiträge und Kommentare) laden
     useEffect(() => {
-        const loadForumData = async () => {
-            try {
-                setLoading(true);
-                const [commentsData, postsData] = await Promise.all([
-                    fetchCommentsByForum(forumId),
-                    fetchPostsByForum(forumId),
-                ]);
-                setComments(commentsData);
-                setPosts(postsData);
-            } catch (err) {
-                console.error('Fehler beim Laden der Forum-Daten:', err);
-                setError('Fehler beim Laden der Forum-Daten.');
-            } finally {
-                setLoading(false);
+        const fetchPosts = async () => {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`http://localhost:8080/api/posts?forumId=${forumId}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setPosts(data);
             }
         };
-        loadForumData();
+        fetchPosts();
     }, [forumId]);
 
-    // Neuer Kommentar hinzufügen
-    const handleAddComment = async () => {
-        if (!newComment.trim()) return;
+    const handlePostSubmit = async () => {
+        const token = localStorage.getItem('token');
+        const response = await fetch('http://localhost:8080/api/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+                forumId: parseInt(forumId, 10),
+                content: newPost,
+                username: 'testuser', // Dies sollte idealerweise dynamisch sein
+            }),
+        });
 
-        try {
-            const comment = { content: newComment };
-            const addedComment = await addCommentToForum(forumId, comment);
-            setComments((prev) => [...prev, addedComment]); // Kommentar zur Liste hinzufügen
-            setNewComment(''); // Eingabefeld zurücksetzen
-        } catch (err) {
-            console.error('Fehler beim Hinzufügen des Kommentars:', err);
-            setError('Fehler beim Hinzufügen des Kommentars.');
+        if (response.ok) {
+            alert('Post erfolgreich erstellt!');
+            setNewPost('');
+            const newPostResponse = await response.json();
+            setPosts((prevPosts) => [...prevPosts, newPostResponse]);
+        } else {
+            alert('Fehler beim Erstellen des Posts');
         }
     };
 
-    if (loading) return <p>Laden...</p>;
-    if (error) return <p style={{ color: 'red' }}>{error}</p>;
-
     return (
         <div>
-            <h1>Forum Detail</h1>
-            {/* Beiträge anzeigen */}
-            <h2>Beiträge</h2>
-            <ul>
-                {posts.map((post) => (
-                    <li key={post.id}>{post.title}</li>
-                ))}
-            </ul>
-
-            {/* Kommentare anzeigen */}
-            <h2>Kommentare</h2>
-            <ul>
-                {comments.map((comment) => (
-                    <li key={comment.id}>
-                        <strong>{comment.author || 'Unbekannt'}</strong>: {comment.content}
-                    </li>
-                ))}
-            </ul>
-
-            {/* Kommentar hinzufügen */}
-            <textarea
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)}
-                placeholder="Schreibe einen Kommentar..."
-            ></textarea>
-            <button onClick={handleAddComment}>Kommentar hinzufügen</button>
+            <h1>Forum Details</h1>
+            <h2>Posts</h2>
+            {posts.map((post) => (
+                <div key={post.id}>
+                    <p>{post.content}</p>
+                    <p>by {post.username}</p>
+                </div>
+            ))}
+            <h2>Neuen Post erstellen</h2>
+            <textarea value={newPost} onChange={(e) => setNewPost(e.target.value)} placeholder="Schreibe deinen Post..." />
+            <button onClick={handlePostSubmit}>Post erstellen</button>
         </div>
     );
-};
+}
 
 export default ForumDetail;

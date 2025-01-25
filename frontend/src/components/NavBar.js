@@ -1,33 +1,17 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ForumList from '../pages/ForumList';
+import ForumDetail from '../pages/ForumDetail';
 
-const NavBar = () => {
-    const navigate = useNavigate();
-    const isAuthenticated = !!localStorage.getItem('token');
-
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        navigate('/login');
-    };
-
+function App() {
     return (
-        <nav>
-            <ul>
-                <li><Link to="/forums">Forums</Link></li>
-                {isAuthenticated ? (
-                    <>
-                        <li><Link to="/create-forum">Create Forum</Link></li>
-                        <li><button onClick={handleLogout}>Logout</button></li>
-                    </>
-                ) : (
-                    <>
-                        <li><Link to="/login">Login</Link></li>
-                        <li><Link to="/register">Register</Link></li>
-                    </>
-                )}
-            </ul>
-        </nav>
+        <Router>
+            <Routes>
+                <Route path="/forums" element={<ForumList />} />
+                <Route path="/forums/:forumId" element={<ForumDetail />} />
+            </Routes>
+        </Router>
     );
-};
+}
 
-export default NavBar;
+export default App;

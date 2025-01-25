@@ -1,37 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { fetchForums } from '../services/api';
+import { Link } from 'react-router-dom';
 
-const ForumList = () => {
+function ForumList() {
     const [forums, setForums] = useState([]);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchAllForums = async () => {
-            try {
-                const data = await fetchForums();
+        const fetchForums = async () => {
+            const token = localStorage.getItem('token');
+            const response = await fetch('http://localhost:8080/api/forums', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
                 setForums(data);
-            } catch (err) {
-                setError('Error fetching forums');
             }
         };
-
-        fetchAllForums();
+        fetchForums();
     }, []);
 
     return (
         <div>
-            <h1>Forum List</h1>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <ul>
-                {forums.map((forum) => (
-                    <li key={forum.id}>
-                        <h3>{forum.title}</h3>
-                        <p>{forum.description}</p>
-                    </li>
-                ))}
-            </ul>
+            <h1>Forums</h1>
+            {forums.map((forum) => (
+                <div key={forum.id}>
+                    <h2>{forum.title}</h2>
+                    <p>{forum.description}</p>
+                    <Link to={`/forums/${forum.id}`}>View Details</Link>
+                </div>
+            ))}
         </div>
     );
-};
+}
 
 export default ForumList;
