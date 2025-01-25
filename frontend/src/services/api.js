@@ -1,78 +1,122 @@
+// Basis-URL für alle API-Aufrufe
 const BASE_URL = 'http://localhost:8080/api';
 
-// Fetch all forums
-export const fetchForums = async () => {
-    const response = await fetch(`${BASE_URL}/forums`);
-    if (!response.ok) {
-        throw new Error('Failed to fetch forums');
-    }
-    return response.json();
-};
+/**
+ * Utility-Funktion: Holt den Token aus dem LocalStorage und überprüft seine Gültigkeit.
+ * @returns {string|null} Der gültige Token oder null, wenn der Token fehlt oder ungültig ist.
+ */
+const getToken = () => {
+    const token = localStorage.getItem('token'); // Token aus LocalStorage abrufen
+    if (!token) return null;
 
-// Create a new forum
-export const createForum = async (forum) => {
-    const token = localStorage.getItem('token');
-    const response = await fetch(`${BASE_URL}/forums`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(forum),
-    });
-    if (!response.ok) {
-        throw new Error('Failed to create forum');
+    try {
+        const { exp } = JSON.parse(atob(token.split('.')[1])); // JWT-Dekodierung
+        // Überprüfen, ob der Token abgelaufen ist
+        if (exp * 1000 < Date.now()) {
+            console.error('Token abgelaufen');
+            return null;
+        }
+        return token; // Gültiger Token wird zurückgegeben
+    } catch (error) {
+        console.error('Ungültiger Token:', error);
+        return null;
     }
 };
 
-// Fetch posts by forum ID
-export const fetchPostsByForum = async (forumId) => {
-    const response = await fetch(`${BASE_URL}/posts?forumId=${forumId}`);
-    if (!response.ok) {
-        throw new Error('Failed to fetch posts');
+/**
+ * Utility-Funktion: Erstellt die HTTP-Header für API-Aufrufe.
+ * @param {boolean} isAuthRequired Gibt an, ob der Authorization-Header benötigt wird.
+ * @returns {object} Die HTTP-Header.
+ */
+const getHeaders = (isAuthRequired = false) => {
+    const headers = { 'Content-Type': 'application/json' }; // Standard-Header
+    if (isAuthRequired) {
+        const token = getToken();
+        if (token) headers.Authorization = `Bearer ${token}`; // Auth-Header hinzufügen
     }
-    return response.json();
+    return headers;
 };
 
-// Create a new post
-export const createPost = async (post) => {
-    const token = localStorage.getItem('token');
-    const response = await fetch(`${BASE_URL}/posts`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(post),
-    });
-    if (!response.ok) {
-        throw new Error('Failed to create post');
+/**
+ * Utility-Funktion: Führt einen allgemeinen API-Aufruf durch.
+ * @param {string} endpoint Der API-Endpunkt.
+ * @param {string} method Die HTTP-Methode (z. B. GET, POST, PUT, DELETE).
+ * @param {object|null} body Die Anfrage-Daten (falls erforderlich).
+ * @param {boolean} isAuthRequired Gibt an, ob die Anfrage eine Authentifizierung erfordert.
+ * @returns {Promise<any>} Die Antwort der API.
+ */
+const apiRequest = async (endpoint, method = 'GET', body = null, isAuthRequired = false) => {
+    try {
+        const response = await fetch(`${BASE_URL}${endpoint}`, {
+            method,
+            headers: getHeaders(isAuthRequired),
+            body: body ? JSON.stringify(body) : null, // Daten als JSON senden (falls vorhanden)
+        });
+
+        // Fehlerbehandlung basierend auf der Antwort
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || 'Fehler bei der API-Anfrage');
+        }
+
+        return response.status !== 204 ? response.json() : null; // Rückgabe, falls kein Inhalt (204)
+    } catch (error) {
+        console.error(`Fehler bei ${method} ${endpoint}:`, error);
+        throw error;
     }
 };
 
-// Login and retrieve a token
+/**
+ * API-Aufrufe
+ */
+
+// Holt alle Foren
+export const fetchForums = async () => apiRequest('/forums');
+
+/**
+ * Erstellt ein neues Forum.
+ * @param {object} forum Die Daten des neuen Forums.
+ * @returns {Promise<any>} Die Antwort der API.
+ */
+export const createForum = async (forum) => apiRequest('/forums', 'POST', forum, true);
+
+/**
+ * Holt Beiträge zu einem bestimmten Forum.
+ * @param {string} forumId Die ID des Forums.
+ * @returns {Promise<any>} Die Antwort der API.
+ */
+export const fetchPostsByForum = async (forumId) => apiRequest(`/posts?forumId=${forumId}`);
+
+/**
+ * Fügt einen neuen Kommentar zu einem Forum hinzu.
+ * @param {string} forumId Die ID des Forums.
+ * @param {object} comment Der Kommentar (z. B. `{ content: "Kommentartext" }`).
+ * @returns {Promise<any>} Die Antwort des Servers (hinzugefügter Kommentar).
+ */
+export const addCommentToForum = async (forumId, comment) =>
+    apiRequest(`/forums/${forumId}/comments`, 'POST', comment, true);
+
+/**
+ * Holt alle Kommentare eines Forums.
+ * @param {string} forumId Die ID des Forums.
+ * @returns {Promise<any>} Eine Liste der Kommentare.
+ */
+export const fetchCommentsByForum = async (forumId) =>
+    apiRequest(`/forums/${forumId}/comments`, 'GET');
+
+/**
+ * Führt den Login durch und gibt den Token zurück.
+ * @param {object} credentials Die Login-Daten (z. B. Benutzername und Passwort).
+ * @returns {Promise<string>} Der Token bei Erfolg.
+ */
 export const login = async (credentials) => {
-    const response = await fetch(`${BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(credentials),
-    });
-    if (!response.ok) {
-        throw new Error('Login failed');
-    }
-    const data = await response.json();
-    localStorage.setItem('token', data.token);
-    localStorage.setItem('username', data.username);
+    const response = await apiRequest('/auth/login', 'POST', credentials);
+    return response.token; // Token zurückgeben
 };
 
-// Register a new user
-export const register = async (credentials) => {
-    const response = await fetch(`${BASE_URL}/auth/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(credentials),
-    });
-    if (!response.ok) {
-        throw new Error('Registration failed');
-    }
-};
+/**
+ * Registriert einen neuen Benutzer.
+ * @param {object} credentials Die Registrierungsdaten (z. B. Benutzername, Passwort).
+ * @returns {Promise<void>} Keine Antwort bei Erfolg.
+ */
+export const register = async (credentials) => apiRequest('/auth/register', 'POST', credentials);
