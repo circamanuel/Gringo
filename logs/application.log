@@ -1,0 +1,367 @@
+2025-01-25 16:31:10 [restartedMain] INFO  com.forum.ForumApplication - Starting ForumApplication using Java 17.0.8 with PID 25584 (C:\Users\manu_\Desktop\Gringo\target\classes started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-25 16:31:10 [restartedMain] INFO  com.forum.ForumApplication - The following 1 profile is active: "dev"
+2025-01-25 16:31:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-25 16:31:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 4 JPA repository interfaces.
+2025-01-25 16:31:10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-25 16:31:10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-25 16:31:10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.1]
+2025-01-25 16:31:10 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-25 16:31:10 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 132 ms
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-25 16:31:10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-25 16:31:10 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-25 16:31:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Starting...
+2025-01-25 16:31:10 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b6d2407
+2025-01-25 16:31:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Start completed.
+2025-01-25 16:31:10 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-25 16:31:10 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-25 16:31:10 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-25 16:31:10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-25 16:31:10 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-25 16:31:10 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3cba7568, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43875df7, org.springframework.security.web.context.SecurityContextHolderFilter@3739ebbc, org.springframework.security.web.header.HeaderWriterFilter@415abaef, org.springframework.security.web.authentication.logout.LogoutFilter@4ba544de, com.forum.security.JwtFilter@10d3791b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@ceba542, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@76300176, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64c7e0a9, org.springframework.security.web.access.ExceptionTranslationFilter@5d44fcbd, org.springframework.security.web.access.intercept.AuthorizationFilter@47121148]
+2025-01-25 16:31:10 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-01-25 16:31:10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-01-25 16:31:10 [restartedMain] INFO  com.forum.ForumApplication - Started ForumApplication in 0.373 seconds (process running for 1234.868)
+2025-01-25 16:31:10 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   GenericCacheConfiguration:
+      Did not match:
+         - Cache org.springframework.boot.autoconfigure.cache.GenericCacheConfiguration unknown cache type (CacheCondition)
+
+   NoOpCacheConfiguration:
+      Did not match:
+         - Cache org.springframework.boot.autoconfigure.cache.NoOpCacheConfiguration unknown cache type (CacheCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2025-01-25 16:31:16 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 31 class path changes (0 additions, 31 deletions, 0 modifications)
+2025-01-25 16:31:16 [Thread-64] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-01-25 16:31:16 [Thread-64] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-25 16:31:16 [Thread-64] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown initiated...
+2025-01-25 16:31:16 [Thread-64] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown completed.
+2025-01-25 16:31:16 [restartedMain] INFO  com.forum.ForumApplication - Starting ForumApplication using Java 17.0.8 with PID 25584 (C:\Users\manu_\Desktop\Gringo\target\classes started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-25 16:31:16 [restartedMain] INFO  com.forum.ForumApplication - The following 1 profile is active: "dev"
+2025-01-25 16:31:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-25 16:31:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2025-01-25 16:31:16 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+	at org.springframework.cglib.proxy.Enhancer.nextInstance(Enhancer.java:783) ~[spring-core-6.0.2.jar:6.0.2]
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:326) ~[spring-core-6.0.2.jar:6.0.2]
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:567) ~[spring-core-6.0.2.jar:6.0.2]
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:412) ~[spring-core-6.0.2.jar:6.0.2]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:513) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:304) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:358) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:150) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:745) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:565) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.0.jar:3.0.0]
+	at com.forum.ForumApplication.main(ForumApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.0.jar:3.0.0]
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-25 16:31:18 [restartedMain] INFO  com.forum.ForumApplication - Starting ForumApplication using Java 17.0.8 with PID 25584 (C:\Users\manu_\Desktop\Gringo\target\classes started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-25 16:31:18 [restartedMain] INFO  com.forum.ForumApplication - The following 1 profile is active: "dev"
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 4 JPA repository interfaces.
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-25 16:31:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-25 16:31:18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.1]
+2025-01-25 16:31:18 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 162 ms
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-25 16:31:18 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-25 16:31:18 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-25 16:31:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Starting...
+2025-01-25 16:31:18 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@28ea478f
+2025-01-25 16:31:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Start completed.
+2025-01-25 16:31:18 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-25 16:31:18 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-25 16:31:18 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-25 16:31:18 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3912286e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@761a0876, org.springframework.security.web.context.SecurityContextHolderFilter@404e4a7f, org.springframework.security.web.header.HeaderWriterFilter@420c836b, org.springframework.security.web.authentication.logout.LogoutFilter@6645204a, com.forum.security.JwtFilter@5c3384f9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62f2bb97, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72db47f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ffb312, org.springframework.security.web.access.ExceptionTranslationFilter@26b6d1e1, org.springframework.security.web.access.intercept.AuthorizationFilter@39d0280b]
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-01-25 16:31:18 [restartedMain] INFO  com.forum.ForumApplication - Started ForumApplication in 0.357 seconds (process running for 1242.765)
+2025-01-25 16:31:18 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-01-25 16:31:19 [main] INFO  AuthControllerTest - Starting AuthControllerTest using Java 17.0.13 with PID 34408 (started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-25 16:31:19 [main] INFO  AuthControllerTest - The following 1 profile is active: "dev"
+2025-01-25 16:31:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-25 16:31:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+2025-01-25 16:31:20 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-25 16:31:20 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.5.Final
+2025-01-25 16:31:20 [main] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-25 16:31:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-25 16:31:20 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@78065fcd
+2025-01-25 16:31:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-25 16:31:20 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-25 16:31:20 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-25 16:31:21 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-25 16:31:21 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-25 16:31:21 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-25 16:31:21 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-25 16:31:21 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-25 16:31:21 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-25 16:31:21 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-25 16:31:21 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-25 16:31:21 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-25 16:31:21 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-25 16:31:21 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-25 16:31:21 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-25 16:31:22 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a5c2889, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7668f8fd, org.springframework.security.web.context.SecurityContextHolderFilter@7da1ef46, org.springframework.security.web.header.HeaderWriterFilter@7bbe532b, org.springframework.security.web.authentication.logout.LogoutFilter@72d7afff, com.forum.security.JwtFilter@73a1a1b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ae23815, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@102f3f05, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75566f4, org.springframework.security.web.access.ExceptionTranslationFilter@5b9df3b3, org.springframework.security.web.access.intercept.AuthorizationFilter@3183a37c]
+2025-01-25 16:31:22 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-01-25 16:31:22 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-01-25 16:31:22 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
+2025-01-25 16:31:22 [main] INFO  AuthControllerTest - Started AuthControllerTest in 3.495 seconds (process running for 4.147)
+2025-01-25 16:31:22 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-25 16:31:22 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-25 16:31:22 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-25 16:31:22 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-25 16:31:22 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-25 16:31:22 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-25 16:31:22 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-25 16:31:22 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-25 16:31:22 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-25 16:31:22 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-25 16:31:22 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-25 16:31:22 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-25 16:31:22 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-25 16:31:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-25 16:31:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-25 16:31:26 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 31 class path changes (0 additions, 31 deletions, 0 modifications)
+2025-01-25 16:31:26 [Thread-68] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-01-25 16:31:26 [Thread-68] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-25 16:31:26 [Thread-68] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Shutdown initiated...
+2025-01-25 16:31:26 [Thread-68] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Shutdown completed.
+2025-01-25 16:31:26 [restartedMain] INFO  com.forum.ForumApplication - Starting ForumApplication using Java 17.0.8 with PID 25584 (C:\Users\manu_\Desktop\Gringo\target\classes started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-25 16:31:26 [restartedMain] INFO  com.forum.ForumApplication - The following 1 profile is active: "dev"
+2025-01-25 16:31:26 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-25 16:31:26 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2025-01-25 16:31:26 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+	at org.springframework.cglib.proxy.Enhancer.nextInstance(Enhancer.java:783) ~[spring-core-6.0.2.jar:6.0.2]
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:326) ~[spring-core-6.0.2.jar:6.0.2]
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:567) ~[spring-core-6.0.2.jar:6.0.2]
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:412) ~[spring-core-6.0.2.jar:6.0.2]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:513) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:304) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:358) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:150) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:745) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:565) ~[spring-context-6.0.2.jar:6.0.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.0.jar:3.0.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.0.jar:3.0.0]
+	at com.forum.ForumApplication.main(ForumApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.0.jar:3.0.0]
+2025-01-25 16:31:27 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-25 16:31:27 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-25 16:31:27 [restartedMain] INFO  com.forum.ForumApplication - Starting ForumApplication using Java 17.0.8 with PID 25584 (C:\Users\manu_\Desktop\Gringo\target\classes started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-25 16:31:27 [restartedMain] INFO  com.forum.ForumApplication - The following 1 profile is active: "dev"
+2025-01-25 16:31:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-25 16:31:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 4 JPA repository interfaces.
+2025-01-25 16:31:27 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-25 16:31:27 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-25 16:31:27 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.1]
+2025-01-25 16:31:27 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-25 16:31:27 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 168 ms
+2025-01-25 16:31:27 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-25 16:31:27 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-25 16:31:27 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-25 16:31:27 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-25 16:31:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Starting...
+2025-01-25 16:31:27 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-14 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6bb16e90
+2025-01-25 16:31:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Start completed.
+2025-01-25 16:31:27 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-25 16:31:27 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-25 16:31:27 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-25 16:31:27 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-25 16:31:27 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-25 16:31:28 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-25 16:31:28 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-25 16:31:28 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-25 16:31:28 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-25 16:31:28 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-25 16:31:28 [restartedMain] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-25 16:31:28 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-25 16:31:28 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@49e43ed6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@404d782d, org.springframework.security.web.context.SecurityContextHolderFilter@3fb5b516, org.springframework.security.web.header.HeaderWriterFilter@45d37148, org.springframework.security.web.authentication.logout.LogoutFilter@44d9af28, com.forum.security.JwtFilter@46c6c3c0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36fbd0f1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8d1d482, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d8e67d, org.springframework.security.web.access.ExceptionTranslationFilter@14a5463a, org.springframework.security.web.access.intercept.AuthorizationFilter@2a3e27d5]
+2025-01-25 16:31:28 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-01-25 16:31:28 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-01-25 16:31:28 [restartedMain] INFO  com.forum.ForumApplication - Started ForumApplication in 0.386 seconds (process running for 1252.325)
+2025-01-25 16:31:28 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-01-25 16:31:28 [main] INFO  AuthControllerTest - Starting AuthControllerTest using Java 17.0.13 with PID 38716 (started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-25 16:31:28 [main] INFO  AuthControllerTest - The following 1 profile is active: "dev"
+2025-01-25 16:31:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-25 16:31:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 4 JPA repository interfaces.
+2025-01-25 16:31:29 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-25 16:31:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.5.Final
+2025-01-25 16:31:30 [main] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-25 16:31:30 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-25 16:31:30 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@78065fcd
+2025-01-25 16:31:30 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-25 16:31:30 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-25 16:31:30 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-25 16:31:30 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-25 16:31:30 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-25 16:31:31 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-25 16:31:31 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-25 16:31:31 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-25 16:31:31 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-25 16:31:31 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-25 16:31:31 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-25 16:31:31 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-25 16:31:31 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-25 16:31:31 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-25 16:31:31 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-25 16:31:31 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a5c2889, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7668f8fd, org.springframework.security.web.context.SecurityContextHolderFilter@7da1ef46, org.springframework.security.web.header.HeaderWriterFilter@7bbe532b, org.springframework.security.web.authentication.logout.LogoutFilter@72d7afff, com.forum.security.JwtFilter@73a1a1b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ae23815, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@102f3f05, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75566f4, org.springframework.security.web.access.ExceptionTranslationFilter@5b9df3b3, org.springframework.security.web.access.intercept.AuthorizationFilter@3183a37c]
+2025-01-25 16:31:32 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-01-25 16:31:32 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-01-25 16:31:32 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2025-01-25 16:31:32 [main] INFO  AuthControllerTest - Started AuthControllerTest in 3.601 seconds (process running for 4.283)
+2025-01-25 16:31:32 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-25 16:31:32 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-25 16:31:32 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-25 16:31:32 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-25 16:31:32 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-25 16:31:32 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-25 16:31:32 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-25 16:31:32 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-25 16:31:32 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-25 16:31:32 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-25 16:31:32 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-25 16:31:32 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-25 16:31:32 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-25 16:31:32 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-25 16:31:32 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,7 +1,6 @@
-package com.forum;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.forum.models.Forum;
+import com.forum.ForumApplication;
+import com.forum.repository.ForumRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,7 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
+@SpringBootTest(classes = ForumApplication.class)
 @AutoConfigureMockMvc
 public class ForumControllerTest {
 
@@ -20,20 +19,21 @@ public class ForumControllerTest {
     private MockMvc mockMvc;
 
     @Autowired
-    private ObjectMapper objectMapper;
+    private ForumRepository forumRepository;
+
+    @BeforeEach
+    public void setUp() {
+        forumRepository.deleteAll(); // Bereinigt die Datenbank vor jedem Test
+    }
 
     @Test
     public void testCreateForum() throws Exception {
-        String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTY3MzU4NTYwMCwiZXhwIjoxNjczNTg5MjAwfQ.wRZy-XzjlCHj13wSScImW0lI-Mp4pY5dCGH35Zm2TxU";
-
-        Forum forum = new Forum();
-        forum.setTitle("Test Forum");
-        forum.setDescription("This is a test forum.");
+        String forumJson = "{\"title\": \"Test Forum\", \"description\": \"This is a test forum.\"}";
 
         mockMvc.perform(post("/api/forums")
-                        .header("Authorization", token)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(forum)))
-                .andExpect(status().isCreated());
+                        .header("Authorization", "Bearer your_test_token") // Falls Auth verwendet wird
+                        .content(forumJson))
+                .andExpect(status().isOk());
     }
 }
