@@ -1,17 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ForumList from '../pages/ForumList';
-import ForumDetail from '../pages/ForumDetail';
+import { Link } from 'react-router-dom';
 
-function App() {
+function NavBar() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/forums" element={<ForumList />} />
-                <Route path="/forums/:forumId" element={<ForumDetail />} />
-            </Routes>
-        </Router>
+        <nav className="navbar">
+            <ul>
+                <li>
+                    <Link to="/forums">Foren</Link>
+                </li>
+                <li>
+                    <Link to="/forums/new">Neues Forum</Link>
+                </li>
+                <li>
+                    <Link to="/login">Login</Link>
+                </li>
+                <li>
+                    <Link to="/register">Registrieren</Link>
+                </li>
+            </ul>
+        </nav>
     );
 }
 
-export default App;
+export default NavBar;
