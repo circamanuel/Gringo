@@ -1,4 +1,8 @@
-# **- Detaillierte Installationsanleitung für das Forum-Projekt (Spring Boot & React)**
+
+
+![Forum Project Title](assets/Titelbild.webp)
+
+# **Detaillierte Installationsanleitung für das Forum-Projekt (Spring Boot & React)**
 
 Diese Anleitung beschreibt **Schritt für Schritt**, wie du das **Forum-Projekt** auf deinem lokalen Rechner **installierst und startest**.  
 Die Anwendung besteht aus **zwei Hauptkomponenten**:
@@ -7,7 +11,7 @@ Die Anwendung besteht aus **zwei Hauptkomponenten**:
 
 ---  
 
-## **- 1. Voraussetzungen für die Installation**
+## **1. Voraussetzungen für die Installation**
 
 Stelle sicher, dass die folgenden Programme auf deinem Rechner installiert sind:
 
@@ -22,9 +26,9 @@ Stelle sicher, dass die folgenden Programme auf deinem Rechner installiert sind:
 
 ---  
 
-## **- 2. Backend installieren & starten (Spring Boot + MySQL)**
+## **2. Backend installieren & starten (Spring Boot + MySQL)**
 
-### - **Schritt 1: Repository klonen**
+### **Schritt 1: Repository klonen**
 Zuerst klonst du das Backend-Repository mit **Git**:
 ```bash
 git clone https://github.com/dein-user/forum-backend.git
@@ -34,7 +38,7 @@ Falls du Git nicht installiert hast, kannst du das Repository auch als ZIP herun
 
 ---
 
-### - **Schritt 2: MySQL-Datenbank einrichten**
+###  **Schritt 2: MySQL-Datenbank einrichten**
 Das Forum benötigt eine **MySQL-Datenbank**, um Benutzer, Foren und Beiträge zu speichern.
 
 1️⃣ **Starte MySQL**
@@ -79,7 +83,7 @@ mvn -version
 
 ---
 
-### - **Schritt 4: Backend starten**
+###  **Schritt 4: Backend starten**
 ```bash
 mvn spring-boot:run
 ```
@@ -96,9 +100,9 @@ server.port=9090
 
 ---
 
-## **- 3. Frontend installieren & starten (React.js)**
+## ** 3. Frontend installieren & starten (React.js)**
 
-### - **Schritt 1: Repository klonen**
+###  **Schritt 1: Repository klonen**
 Öffne ein neues Terminal und klone das **Frontend**-Repository:
 ```bash
 git clone https://github.com/dein-user/forum-frontend.git
@@ -107,7 +111,7 @@ cd forum-frontend
 
 ---
 
-### - **Schritt 2: Abhängigkeiten installieren**
+###  **Schritt 2: Abhängigkeiten installieren**
 ```bash
 npm install
 ```
@@ -120,7 +124,7 @@ Falls es Fehler gibt:
 
 ---
 
-### - **Schritt 3: Frontend starten**
+###  **Schritt 3: Frontend starten**
 ```bash
 npm start
 ```
@@ -133,7 +137,7 @@ PORT=4000 npm start
 
 ---
 
-## **- 4. Login & Nutzung der Anwendung**
+## ** 4. Login & Nutzung der Anwendung**
 
 1️⃣ **Registriere einen neuen Benutzer**
 - Öffne das Frontend: [`http://localhost:3000`](http://localhost:3000)
@@ -146,7 +150,7 @@ PORT=4000 npm start
 
 ---
 
-## **- 5. API-Endpunkte testen (Optional mit Postman)**
+## ** 5. API-Endpunkte testen (Optional mit Postman)**
 
 Falls du **Postman** oder eine andere API-Testumgebung nutzen möchtest, kannst du folgende Requests ausführen:
 
@@ -191,7 +195,7 @@ Body: {
 
 ---
 
-## **- 6. Fehlerbehebung & Troubleshooting**
+## ** 6. Fehlerbehebung & Troubleshooting**
 
 ### ❌ **Fehler: Port 8080 already in use**
 ✅ **Lösung:**  
@@ -221,7 +225,7 @@ taskkill /PID <PID> /F
 
 ---
 
-## **- 7. Weiterentwicklung & Contribution**
+## ** 7. Weiterentwicklung & Contribution**
 Falls du zur Weiterentwicklung beitragen möchtest:
 1. **Forke das Repository**
 2. **Erstelle einen Feature-Branch**
@@ -230,11 +234,11 @@ Falls du zur Weiterentwicklung beitragen möchtest:
 ---
 
 
-# **- 2. Einleitung und Anforderungsanalyse (User Stories)**
+# ** 2. Einleitung und Anforderungsanalyse (User Stories)**
 
 ---
 
-## **- 2.1 Einleitung**
+## ** 2.1 Einleitung**
 
 Die Digitalisierung hat dazu geführt, dass Online-Foren eine zentrale Rolle im Austausch von Wissen und Diskussionen spielen. Unser Projekt zielt darauf ab, eine **benutzerfreundliche und sichere Multiuser-Webanwendung** zu entwickeln, die es Nutzern ermöglicht, sich zu registrieren, Foren zu erstellen und Beiträge zu verfassen.
 
@@ -244,7 +248,7 @@ Die Anwendung richtet sich an eine breite Nutzerbasis, die eine **intuitive Plat
 
 ---
 
-## **- 2.2 Anforderungsanalyse**
+## ** 2.2 Anforderungsanalyse**
 
 ### **Funktionale Anforderungen**
 ✔ Benutzer können sich **registrieren und anmelden**  
@@ -263,7 +267,7 @@ Die Anwendung richtet sich an eine breite Nutzerbasis, die eine **intuitive Plat
 
 ---
 
-## **- 2.3 User Stories**
+## ** 2.3 User Stories**
 
 ### **🔹 Registrierung und Login**
 > *"Als Benutzer möchte ich mich registrieren und anmelden können, um Foren und Beiträge zu erstellen."*
@@ -332,16 +336,16 @@ Die oben definierten Anforderungen bilden die **Grundlage für die Entwicklung**
 
 ### ✅ **Nächster Abschnitt: 3. Sicherheitskonzept** ✅
 
-# **- 3. Sicherheitskonzept**
+# **3. Sicherheitskonzept**
 
 ---
 
-## **- 3.1 Ziel des Sicherheitskonzepts**
+## **3.1 Ziel des Sicherheitskonzepts**
 Die Sicherheit der Anwendung ist essenziell, um **Datenmissbrauch, unbefugten Zugriff und Angriffe** zu verhindern. Das Sicherheitskonzept umfasst Mechanismen für **Authentifizierung, Zugriffskontrolle, Datensicherheit und Angriffsschutz**.
 
 ---
 
-## **- 3.2 Authentifizierung und Autorisierung**
+## **3.2 Authentifizierung und Autorisierung**
 Die Benutzeranmeldung erfolgt über eine **JWT-basierte Authentifizierung**. Nach erfolgreicher Anmeldung wird dem Benutzer ein **JSON Web Token (JWT)** ausgestellt, das bei jeder weiteren Anfrage zur Identifikation genutzt wird.
 
 ### **🔹 Token-basierte Authentifizierung**
@@ -359,7 +363,7 @@ Die Benutzeranmeldung erfolgt über eine **JWT-basierte Authentifizierung**. Nac
 
 ---
 
-## **- 3.3 Zugriffskontrolle und Benutzerrollen**
+## **3.3 Zugriffskontrolle und Benutzerrollen**
 Nicht alle Benutzer haben dieselben Rechte. Unser System verwendet **Rollenbasierte Zugriffskontrolle (RBAC)** mit folgenden Berechtigungen:
 
 | **Rolle**       | **Berechtigungen** |
@@ -386,7 +390,7 @@ http.csrf().disable()
 
 ---
 
-## **- 3.4 Datensicherheit**
+## **3.4 Datensicherheit**
 ✔ **Passwortverschlüsselung**: Alle Passwörter werden mit **BCrypt** gehasht  
 ✔ **Datenübertragung**: Verschlüsselte Verbindung über **HTTPS**  
 ✔ **Datenvalidierung**: Eingaben werden überprüft, um **SQL-Injection** zu verhindern  
@@ -401,7 +405,7 @@ public PasswordEncoder passwordEncoder() {
 
 ---
 
-## **- 3.5 Angriffsschutz**
+## **3.5 Angriffsschutz**
 | **Angriffstyp**         | **Gegenmaßnahme** |
 |-----------------------|----------------|
 | **SQL-Injection**     | Verwendung von **Prepared Statements** |
@@ -435,21 +439,21 @@ logger.info("Failed login attempt for user: {}", username);
 
 ---
 
-## **- Fazit des Sicherheitskonzepts**
+## **Fazit des Sicherheitskonzepts**
 Das Sicherheitskonzept sorgt für **geschützte Benutzerdaten, sichere Authentifizierung und Zugriffskontrolle**. Durch die **JWT-Authentifizierung, Passwortverschlüsselung und Angriffsschutzmechanismen** wird eine hohe Sicherheit gewährleistet.
 
 ✅ **Nächster Abschnitt: 4. Arbeitsplanung** ✅
 
-# **- 4. Arbeitsplanung**
+# **4. Arbeitsplanung**
 
 ---
 
-## **- 4.1 Ziel der Arbeitsplanung**
+## **4.1 Ziel der Arbeitsplanung**
 Die Arbeitsplanung dient dazu, **die Aufgaben zu strukturieren, den Zeitaufwand abzuschätzen und eine effiziente Zusammenarbeit** im Team sicherzustellen. Durch die Planung in **sinnvolle Arbeitspakete** wird die Umsetzung des Projekts optimiert.
 
 ---
 
-## **- 4.2 Projektphasen & Meilensteine**
+## **4.2 Projektphasen & Meilensteine**
 
 Das Projekt wird in **vier Hauptphasen** unterteilt:
 
@@ -462,7 +466,7 @@ Das Projekt wird in **vier Hauptphasen** unterteilt:
 
 ---
 
-## **- 4.3 Detaillierte Arbeitspakete mit geschätztem Zeitaufwand**
+## **4.3 Detaillierte Arbeitspakete mit geschätztem Zeitaufwand**
 
 | **Arbeitspaket** | **Beschreibung** | **Geschätzter Zeitaufwand** |
 |-----------------|------------------|-----------------------------|
@@ -484,7 +488,7 @@ Das Projekt wird in **vier Hauptphasen** unterteilt:
 
 ---
 
-## **- 4.4 Priorisierung der Aufgaben**
+## **4.4 Priorisierung der Aufgaben**
 Die Aufgaben werden nach **Must-have**, **Should-have** und **Nice-to-have** priorisiert:
 
 | **Priorität** | **Aufgabe** |
@@ -498,7 +502,7 @@ Die Aufgaben werden nach **Must-have**, **Should-have** und **Nice-to-have** pri
 
 ---
 
-## **- 4.5 Tools & Arbeitsweise**
+## **4.5 Tools & Arbeitsweise**
 ### **🔹 Versionskontrolle & Kollaboration**
 ✔ **Git & GitHub** für Code-Versionierung  
 ✔ **Branching-Strategie**: Entwicklerversionen im **feature-Branch**, Merge in **develop**
@@ -514,15 +518,15 @@ Die Aufgaben werden nach **Must-have**, **Should-have** und **Nice-to-have** pri
 
 ---
 
-## **- 4.6 Fazit der Arbeitsplanung**
+## **4.6 Fazit der Arbeitsplanung**
 Die Arbeitspakete sind so aufgeteilt, dass **Parallelisierung** möglich ist (Backend & Frontend separat entwickelbar). Durch den Einsatz moderner **Tools zur Kollaboration & Versionskontrolle** wird eine strukturierte Entwicklung sichergestellt.
 
 ✅ **Nächster Abschnitt: 5. Test-Konzept** ✅
-# **- 5. Test-Konzept**
+# **5. Test-Konzept**
 
 ---
 
-## **- 5.1 Ziel des Test-Konzepts**
+## **5.1 Ziel des Test-Konzepts**
 
 Das Test-Konzept stellt sicher, dass unsere Multiuser-Webanwendung **zuverlässig, sicher und fehlerfrei funktioniert**. Dazu führen wir **automatisierte und manuelle Tests** durch, um Fehler frühzeitig zu erkennen und zu beheben.
 
@@ -534,7 +538,7 @@ Die Tests werden in drei Hauptkategorien unterteilt:
 
 ---
 
-## **- 5.2 Testarten & Teststrategie**
+## **5.2 Testarten & Teststrategie**
 
 ### **🔹 1. Unit-Tests (Backend & Frontend)**
 ✔ **Ziel:** Überprüfung einzelner Methoden und Funktionen auf Korrektheit  
@@ -562,7 +566,7 @@ Die Tests werden in drei Hauptkategorien unterteilt:
 
 ---
 
-## **- 5.3 Testfälle & erwartete Ergebnisse**
+## **5.3 Testfälle & erwartete Ergebnisse**
 
 | **Testfall** | **Beschreibung** | **Erwartetes Ergebnis** | **Testart** |
 |-------------|------------------|-------------------------|-------------|
@@ -575,7 +579,7 @@ Die Tests werden in drei Hauptkategorien unterteilt:
 
 ---
 
-## **- 5.4 Manuelle Tests & Testplan**
+## **5.4 Manuelle Tests & Testplan**
 
 Da nicht alle Aspekte mit automatisierten Tests überprüft werden können, führen wir **zusätzliche manuelle Tests** durch.
 
@@ -591,7 +595,7 @@ Da nicht alle Aspekte mit automatisierten Tests überprüft werden können, füh
 
 ---
 
-## **- 5.5 Testprotokoll**
+## **5.5 Testprotokoll**
 
 | **Testdatum** | **Tester** | **Testfall** | **Status** | **Ergebnis** |
 |--------------|-----------|-------------|------------|--------------|
@@ -602,7 +606,7 @@ Da nicht alle Aspekte mit automatisierten Tests überprüft werden können, füh
 
 ---
 
-## **- 5.6 Fazit**
+## **5.6 Fazit**
 
 Durch unser umfassendes Testkonzept stellen wir sicher, dass die Anwendung **fehlerfrei, sicher und benutzerfreundlich** ist. Die Kombination aus **automatisierten Tests, manuellen Tests und End-to-End-Tests** garantiert eine hohe Softwarequalität.
 
@@ -629,7 +633,7 @@ Unsere Multiuser-Webanwendung basiert auf einem modernen **Full-Stack-Webentwick
 
 ---
 
-## **- 6.2 Backend: Spring Boot**
+## **6.2 Backend: Spring Boot**
 
 **- Warum Spring Boot?**
 Spring Boot ist ein leistungsstarkes Java-Framework, das die Entwicklung von REST-APIs vereinfacht und viele Sicherheits- und Datenbankfunktionen bietet.
@@ -663,7 +667,7 @@ public class AuthController {
 
 ---
 
-## **- 6.3 Frontend: React.js**
+## **6.3 Frontend: React.js**
 
 **- Warum React?**
 - **Komponentenbasiert** → Wiederverwendbare UI-Bausteine
@@ -689,7 +693,7 @@ export const login = async (credentials) => {
 
 ---
 
-## **- 6.4 Datenbank: MySQL mit JPA**
+## **6.4 Datenbank: MySQL mit JPA**
 
 **- Warum MySQL?**
 - **Schnell & zuverlässig** für relationale Daten
@@ -721,7 +725,7 @@ public class Post {
 
 ---
 
-## **- 6.5 Sicherheit: JWT für Authentifizierung**
+## **6.5 Sicherheit: JWT für Authentifizierung**
 
 **- Warum JWT?**
 - **Sicher & dezentral** → Kein Speichern von Sessions erforderlich
@@ -746,7 +750,7 @@ public String generateToken(String username) {
 
 ---
 
-## **- 6.6 Fazit**
+## **6.6 Fazit**
 Durch die Kombination aus **Spring Boot, React, MySQL und JWT** haben wir eine **moderne, sichere und skalierbare** Webanwendung geschaffen. Die klare **Trennung von Frontend und Backend** ermöglicht eine einfache Wartung und Erweiterung.
 
 ✅ **Nächster Abschnitt: 7. Beschreibung der Abläufe beim Login** ✅
@@ -813,7 +817,7 @@ localStorage.setItem("token", response.data.token);
 
 ---
 
-## **- 7.3 Verwendung des Tokens für Authentifizierte API-Anfragen**
+## **7.3 Verwendung des Tokens für Authentifizierte API-Anfragen**
 
 Sobald der Benutzer eingeloggt ist, muss das Token bei allen API-Anfragen im **Authorization Header** mitgesendet werden.
 
@@ -846,7 +850,7 @@ if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
 
 ---
 
-## **- 7.4 Ablauf bei Logout**
+## **7.4 Ablauf bei Logout**
 
 Der Logout-Prozess erfolgt **client-seitig**.  
 Das gespeicherte Token wird einfach aus `localStorage` entfernt.
@@ -861,7 +865,7 @@ const handleLogout = () => {
 
 ---
 
-## **- 7.5 Fehlerbehandlung und Sicherheitstipps**
+## **7.5 Fehlerbehandlung und Sicherheitstipps**
 
 ✅ **Ungültige Anmeldedaten abfangen**
 - Backend sollte **allgemeine Fehlernachrichten** ausgeben, um **Brute-Force-Angriffe** zu verhindern:
@@ -879,7 +883,7 @@ throw new RuntimeException("Invalid username or password");
 
 ---
 
-## **- 7.6 Fazit**
+## **7.6 Fazit**
 Dank JWT funktioniert unser Login-System **ohne serverseitige Sessions**. Benutzer können sich sicher anmelden und **alle nachfolgenden API-Aufrufe werden authentifiziert**.
 
 ✅ **Nächster Abschnitt: 8. Testprotokoll** ✅
@@ -890,7 +894,7 @@ Die Qualitätssicherung unseres Forums erfordert umfassende Tests. Das Testproto
 
 ---
 
-## **- 8.1 Testarten**
+## **8.1 Testarten**
 
 Für unsere Anwendung haben wir folgende **Testmethoden** angewendet:
 
@@ -903,7 +907,7 @@ Für unsere Anwendung haben wir folgende **Testmethoden** angewendet:
 
 ---
 
-## **- 8.2 Testumgebung**
+## **8.2 Testumgebung**
 
 ✅ **Backend:** Spring Boot, H2-Datenbank für Tests  
 ✅ **Frontend:** React, Jest für UI-Tests  
@@ -914,7 +918,7 @@ Für unsere Anwendung haben wir folgende **Testmethoden** angewendet:
 
 ---
 
-## **- 8.3 Funktionale Tests**
+## **8.3 Funktionale Tests**
 
 ### **✅ Registrierung eines neuen Benutzers**
 | Testfall | Erwartetes Ergebnis | Status |
@@ -944,7 +948,7 @@ Für unsere Anwendung haben wir folgende **Testmethoden** angewendet:
 
 ---
 
-## **- 8.4 Sicherheitstests**
+## **8.4 Sicherheitstests**
 
 ### **✅ Token-Authentifizierung**
 | Testfall | Erwartetes Ergebnis | Status |
@@ -961,7 +965,7 @@ Für unsere Anwendung haben wir folgende **Testmethoden** angewendet:
 
 ---
 
-## **- 8.5 Automatisierte Tests (JUnit & Jest)**
+## **8.5 Automatisierte Tests (JUnit & Jest)**
 
 ### **Backend: Unit-Test für Registrierung**
 ```java
@@ -984,7 +988,7 @@ test("renders login form", () => {
 
 ---
 
-## **- 8.6 Zusammenfassung & Fehleranalyse**
+## **8.6 Zusammenfassung & Fehleranalyse**
 
 ### **Wichtige Erkenntnisse:**
 ✅ **JWT funktioniert stabil, verhindert unautorisierte Zugriffe**  
@@ -998,18 +1002,18 @@ test("renders login form", () => {
 
 ---
 
-## **- 8.7 Fazit**
+## **8.7 Fazit**
 Unsere Teststrategie hat die **Sicherheit & Funktionalität** der Anwendung erheblich verbessert. Die Kombination aus **manuellen API-Tests, Unit-Tests und Sicherheitschecks** stellt sicher, dass unser Forum zuverlässig läuft.
 
 ✅ **Nächster Abschnitt: 9. Arbeitsjournal** ✅
 
-# **- 9. Arbeitsjournal**
+# **9. Arbeitsjournal**
 
 Das **Arbeitsjournal** dokumentiert unsere täglichen Fortschritte, Herausforderungen und Lösungen während der Entwicklung des **Forum-Projekts**. Jede Arbeitssitzung wurde mit einem detaillierten Eintrag versehen.
 
 ---
 
-## **- 9.1 Überblick über den Entwicklungsprozess**
+## **9.1 Überblick über den Entwicklungsprozess**
 
 | **Datum**      | **Bearbeiter**        | **Arbeitspaket**                                  | **Dauer** | **Status** |
 |---------------|----------------------|-------------------------------------------------|----------|-----------|
@@ -1028,7 +1032,7 @@ Das **Arbeitsjournal** dokumentiert unsere täglichen Fortschritte, Herausforder
 
 ---
 
-## **- 9.2 Detailierte Arbeitseinträge**
+## **9.2 Detailierte Arbeitseinträge**
 
 ### **📅 14. Januar 2025 - Initialisierung des Projekts**
 - **Manuel** hat das Git-Repository erstellt, die Grundstruktur aufgesetzt und ein einfaches Spring Boot-Projekt generiert.
@@ -1119,7 +1123,7 @@ Das **Arbeitsjournal** dokumentiert unsere täglichen Fortschritte, Herausforder
 
 ---
 
-## **- 9.3 Erkenntnisse & Lessons Learned**
+## **9.3 Erkenntnisse & Lessons Learned**
 
 ### **Was lief gut?**
 ✅ **Spring Boot + React hat gut funktioniert**  
@@ -1134,7 +1138,7 @@ Das **Arbeitsjournal** dokumentiert unsere täglichen Fortschritte, Herausforder
 
 ---
 
-## **- Fazit**
+## **Fazit**
 Das Forum-Projekt hat gezeigt, wie **Spring Boot & React kombiniert** werden können, um eine sichere und effiziente Multiuser-Webanwendung zu entwickeln. Durch **strukturierte Planung, Testautomatisierung und Debugging** haben wir eine funktionsfähige und sichere Plattform erstellt.
 
 ✅ **Projekt erfolgreich abgeschlossen!** 🎉
@@ -1160,7 +1164,7 @@ Das Forum-Projekt erforderte die Integration verschiedener Technologien, darunte
 
 ---
 
-## **- 10.2 Wann und wie haben wir ChatGPT eingesetzt?**
+## **10.2 Wann und wie haben wir ChatGPT eingesetzt?**
 
 ### **1️⃣ Backend-Entwicklung (Spring Boot, JWT, Security)**
 - **Beispiel:**
@@ -1267,7 +1271,7 @@ public void testLogin() throws Exception {
 
 ---
 
-## **- 10.3 Grenzen der KI-Nutzung**
+## **10.3 Grenzen der KI-Nutzung**
 
 Obwohl ChatGPT uns **massiv geholfen** hat, gab es **Herausforderungen**:
 
@@ -1284,7 +1288,7 @@ Obwohl ChatGPT uns **massiv geholfen** hat, gab es **Herausforderungen**:
 
 ---
 
-## **- 10.4 Fazit: KI als Unterstützung, nicht als Ersatz**
+## **10.4 Fazit: KI als Unterstützung, nicht als Ersatz**
 
 - **Was war der größte Vorteil?**
 - **Schnellere Entwicklung** durch **automatisierte Code-Vorschläge**.
@@ -1305,15 +1309,13 @@ Obwohl ChatGPT uns **massiv geholfen** hat, gab es **Herausforderungen**:
 
 ---
 
-## 🎯 **Nächster Abschnitt: 11. Präsentationsvorbereitung** ✅
-
-# **- 11. Präsentationsvorbereitung**
+# **11. Präsentationsvorbereitung**
 
 Die abschließende Präsentation unseres **Forum-Projekts** ist ein wichtiger Bestandteil der Bewertung. In diesem Abschnitt dokumentieren wir, wie wir uns darauf vorbereitet haben, welche Inhalte präsentiert werden und worauf wir besonders achten.
 
 ---
 
-## **- 11.1 Ziel der Präsentation**
+## **11.1 Ziel der Präsentation**
 
 Unser Ziel ist es, das entwickelte Forum **klar, verständlich und professionell** zu präsentieren. Dabei möchten wir die **technischen Aspekte, die Umsetzung der Anforderungen und unsere Erfahrungen im Projekt** hervorheben.
 
@@ -1328,7 +1330,7 @@ Die Präsentation soll **folgende Fragen beantworten**:
 
 ---
 
-## **- 11.2 Struktur der Präsentation**
+## **11.2 Struktur der Präsentation**
 
 ### **1️⃣ Einführung (5 min)**
 - Vorstellung der Teammitglieder
@@ -1378,7 +1380,7 @@ Die Präsentation soll **folgende Fragen beantworten**:
 
 ---
 
-## **- 11.3 Technische Hilfsmittel für die Präsentation**
+## **11.3 Technische Hilfsmittel für die Präsentation**
 
 ✅ **PowerPoint/Google Slides** mit Diagrammen, Code-Beispielen & Screenshots  
 ✅ **Live-Demo über Localhost oder ein Deployment**  
@@ -1386,7 +1388,7 @@ Die Präsentation soll **folgende Fragen beantworten**:
 
 ---
 
-## **- 11.4 Aufgabenverteilung für die Präsentation**
+## **11.4 Aufgabenverteilung für die Präsentation**
 
 | Aufgabe | Zuständigkeit |  
 |---------|--------------|  
@@ -1400,7 +1402,7 @@ Die Präsentation soll **folgende Fragen beantworten**:
 
 ---
 
-## **- 11.5 Tipps für eine erfolgreiche Präsentation**
+## **11.5 Tipps für eine erfolgreiche Präsentation**
 
 🎤 **Klare und prägnante Sprache verwenden**  
 🎯 **Technische Details einfach erklären** (auch für Nicht-Entwickler verständlich)  
@@ -1415,13 +1417,13 @@ Die Präsentation soll **folgende Fragen beantworten**:
 Die Präsentation ist der letzte, aber **entscheidende Schritt** unseres Projekts. Sie zeigt nicht nur unser technisches Können, sondern auch, wie gut wir unser Projekt **strukturieren und kommunizieren** können. Eine gute Vorbereitung sorgt dafür, dass wir unser Forum **professionell und überzeugend präsentieren**.
 
 ➡️ **Nächster Abschnitt: 12. Abschluss & Fazit des Projekts** ✅
-# **- 12. Abschluss & Fazit des Projekts**
+# **12. Abschluss & Fazit des Projekts**
 
 Nachdem wir unser **Forum-Projekt** erfolgreich entwickelt, getestet und präsentiert haben, ziehen wir in diesem Abschnitt ein **abschließendes Fazit**. Wir reflektieren unsere Arbeit, analysieren die wichtigsten Erkenntnisse und überlegen, wie wir das Projekt in Zukunft weiter verbessern könnten.
 
 ---
 
-## **- 12.1 Zusammenfassung des Projekts**
+## **12.1 Zusammenfassung des Projekts**
 
 Das Ziel unseres Projekts war die **Entwicklung einer Multiuser-Webanwendung**, die es Benutzern ermöglicht, **Foren zu erstellen, Beiträge zu verfassen und sich über verschiedene Themen auszutauschen**.
 
@@ -1440,7 +1442,7 @@ Das Ziel unseres Projekts war die **Entwicklung einer Multiuser-Webanwendung**, 
 
 ---
 
-## **- 12.2 Herausforderungen & Lösungsansätze**
+## **12.2 Herausforderungen & Lösungsansätze**
 
 Während der Entwicklung des Forums sind wir auf **mehrere Herausforderungen gestoßen**, die wir durch verschiedene **Lösungsansätze** erfolgreich bewältigen konnten.
 
@@ -1466,7 +1468,7 @@ Während der Entwicklung des Forums sind wir auf **mehrere Herausforderungen ges
 
 ---
 
-## **- 12.3 Was haben wir gelernt? (Key Learnings)**
+## **12.3 Was haben wir gelernt? (Key Learnings)**
 Während der Entwicklung unseres Forums konnten wir viele wichtige **technische und methodische Erkenntnisse** gewinnen:
 
 ### **👨‍💻 Technische Learnings**
@@ -1484,7 +1486,7 @@ Während der Entwicklung unseres Forums konnten wir viele wichtige **technische 
 
 ---
 
-## **- 12.4 Möglichkeiten zur Weiterentwicklung**
+## **12.4 Möglichkeiten zur Weiterentwicklung**
 
 Obwohl unser Forum bereits über **viele wichtige Funktionen** verfügt, gibt es **zahlreiche Erweiterungsmöglichkeiten**, die wir in der Zukunft umsetzen könnten:
 
@@ -1499,7 +1501,7 @@ Obwohl unser Forum bereits über **viele wichtige Funktionen** verfügt, gibt es
 
 ---
 
-## **- 12.5 Fazit & Abschluss**
+## **12.5 Fazit & Abschluss**
 
 Unser Projekt war eine **spannende und lehrreiche Erfahrung**, in der wir nicht nur unser technisches Wissen erweitert, sondern auch gelernt haben, wie man **komplexe Webanwendungen strukturiert entwickelt und sich als Team organisiert**.
 
