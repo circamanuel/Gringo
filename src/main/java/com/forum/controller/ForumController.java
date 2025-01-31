@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/forums")
+@RestController // Marks this class as a REST controller, handling API requests
+@RequestMapping("/api/forums") // Base path for all forum-related API endpoints
 public class ForumController {
 
     private final ForumService forumService;
 
+    // Constructor-based dependency injection for ForumService
     public ForumController(ForumService forumService) {
         this.forumService = forumService;
     }
@@ -34,8 +35,11 @@ public class ForumController {
     // POST: Create a new forum
     @PostMapping
     public ResponseEntity<Forum> createForum(@RequestBody Forum forum, Authentication authentication) {
+        // Retrieve the username from the authentication object (or set to "Anonymous" if not authenticated)
         String username = (authentication != null) ? authentication.getName() : "Anonymous";
         forum.setCreatedBy(username);
+
+        // Save the new forum and return a 201 Created response
         return new ResponseEntity<>(forumService.createForum(forum), HttpStatus.CREATED);
     }
 
@@ -44,13 +48,15 @@ public class ForumController {
     public ResponseEntity<Forum> updateForum(@PathVariable Long id, @RequestBody Forum forum, Authentication authentication) {
         Forum existingForum = forumService.getForumById(id);
 
-        // Only allow the creator or admin to update the forum
+        // Only allow the creator or an admin to update the forum
         if (authentication == null || (!existingForum.getCreatedBy().equals(authentication.getName()) && !isAdmin(authentication))) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build(); // Return 403 Forbidden if unauthorized
         }
 
+        // Update forum details
         existingForum.setTitle(forum.getTitle());
         existingForum.setDescription(forum.getDescription());
+
         return ResponseEntity.ok(forumService.updateForum(existingForum));
     }
 
@@ -59,16 +65,16 @@ public class ForumController {
     public ResponseEntity<Void> deleteForum(@PathVariable Long id, Authentication authentication) {
         Forum forum = forumService.getForumById(id);
 
-        // Only allow the creator or admin to delete the forum
+        // Only allow the creator or an admin to delete the forum
         if (authentication == null || (!forum.getCreatedBy().equals(authentication.getName()) && !isAdmin(authentication))) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build(); // Return 403 Forbidden if unauthorized
         }
 
         forumService.deleteForum(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build(); // Return 204 No Content upon successful deletion
     }
 
-    // Helper method to check if the user is an admin
+    // Helper method to check if the authenticated user is an admin
     private boolean isAdmin(Authentication authentication) {
         return authentication != null && authentication.getAuthorities().stream()
                 .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));

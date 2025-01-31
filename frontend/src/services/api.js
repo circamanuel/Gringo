@@ -1,122 +1,176 @@
-// Basis-URL für alle API-Aufrufe
+// Base URL for all API calls
 const BASE_URL = 'http://localhost:8080/api';
 
 /**
- * Utility-Funktion: Holt den Token aus dem LocalStorage und überprüft seine Gültigkeit.
- * @returns {string|null} Der gültige Token oder null, wenn der Token fehlt oder ungültig ist.
+ * Utility function: Retrieves the token from LocalStorage and verifies its validity.
+ * If the token is expired, it removes the token and redirects to login.
+ * @returns {string|null} The valid token or null if the token is missing or expired.
  */
 const getToken = () => {
-    const token = localStorage.getItem('token'); // Token aus LocalStorage abrufen
+    const token = localStorage.getItem('token'); // Retrieve token from LocalStorage
     if (!token) return null;
 
     try {
-        const { exp } = JSON.parse(atob(token.split('.')[1])); // JWT-Dekodierung
-        // Überprüfen, ob der Token abgelaufen ist
+        const { exp } = JSON.parse(atob(token.split('.')[1])); // Decode JWT payload
+
+        // Check if the token is expired
         if (exp * 1000 < Date.now()) {
-            console.error('Token abgelaufen');
+            console.warn('Token expired. Logging out user.');
+            localStorage.removeItem('token'); // Remove expired token
+            window.location.href = '/login'; // Redirect to login page
             return null;
         }
-        return token; // Gültiger Token wird zurückgegeben
+        return token; // Return valid token
     } catch (error) {
-        console.error('Ungültiger Token:', error);
+        console.error('Invalid token:', error);
+        localStorage.removeItem('token'); // Remove invalid token
         return null;
     }
 };
 
 /**
- * Utility-Funktion: Erstellt die HTTP-Header für API-Aufrufe.
- * @param {boolean} isAuthRequired Gibt an, ob der Authorization-Header benötigt wird.
- * @returns {object} Die HTTP-Header.
+ * Utility function: Creates HTTP headers for API requests.
+ * @param {boolean} isAuthRequired Determines if the Authorization header is needed.
+ * @returns {object} HTTP headers.
  */
 const getHeaders = (isAuthRequired = false) => {
-    const headers = { 'Content-Type': 'application/json' }; // Standard-Header
+    const headers = { 'Content-Type': 'application/json' }; // Default headers
     if (isAuthRequired) {
         const token = getToken();
-        if (token) headers.Authorization = `Bearer ${token}`; // Auth-Header hinzufügen
+        if (token) headers.Authorization = `Bearer ${token}`; // Add Authorization header
     }
     return headers;
 };
 
 /**
- * Utility-Funktion: Führt einen allgemeinen API-Aufruf durch.
- * @param {string} endpoint Der API-Endpunkt.
- * @param {string} method Die HTTP-Methode (z. B. GET, POST, PUT, DELETE).
- * @param {object|null} body Die Anfrage-Daten (falls erforderlich).
- * @param {boolean} isAuthRequired Gibt an, ob die Anfrage eine Authentifizierung erfordert.
- * @returns {Promise<any>} Die Antwort der API.
+ * Utility function: Handles generic API requests.
+ * @param {string} endpoint The API endpoint.
+ * @param {string} method The HTTP method (GET, POST, PUT, DELETE).
+ * @param {object|null} body Request payload (if required).
+ * @param {boolean} isAuthRequired Determines if authentication is needed.
+ * @returns {Promise<any>} API response.
  */
 const apiRequest = async (endpoint, method = 'GET', body = null, isAuthRequired = false) => {
     try {
         const response = await fetch(`${BASE_URL}${endpoint}`, {
             method,
             headers: getHeaders(isAuthRequired),
-            body: body ? JSON.stringify(body) : null, // Daten als JSON senden (falls vorhanden)
+            body: body ? JSON.stringify(body) : null, // Send body as JSON (if applicable)
         });
 
-        // Fehlerbehandlung basierend auf der Antwort
+        // Handle errors based on response status
         if (!response.ok) {
             const errorText = await response.text();
-            throw new Error(errorText || 'Fehler bei der API-Anfrage');
+            throw new Error(errorText || 'Error processing API request');
         }
 
-        return response.status !== 204 ? response.json() : null; // Rückgabe, falls kein Inhalt (204)
+        return response.status !== 204 ? response.json() : null; // Handle responses with no content (204)
     } catch (error) {
-        console.error(`Fehler bei ${method} ${endpoint}:`, error);
+        console.error(`API Error [${method} ${endpoint}]:`, error);
         throw error;
     }
 };
 
 /**
- * API-Aufrufe
+ * API Calls
  */
 
-// Holt alle Foren
+// Fetch all forums
 export const fetchForums = async () => apiRequest('/forums');
 
 /**
- * Erstellt ein neues Forum.
- * @param {object} forum Die Daten des neuen Forums.
- * @returns {Promise<any>} Die Antwort der API.
+ * Creates a new forum.
+ * @param {object} forum Forum data.
+ * @returns {Promise<any>} API response.
  */
 export const createForum = async (forum) => apiRequest('/forums', 'POST', forum, true);
 
 /**
- * Holt Beiträge zu einem bestimmten Forum.
- * @param {string} forumId Die ID des Forums.
- * @returns {Promise<any>} Die Antwort der API.
+ * Updates an existing forum.
+ * @param {string} forumId Forum ID.
+ * @param {object} forum Updated forum data.
+ * @returns {Promise<any>} Updated forum response.
+ */
+export const updateForum = async (forumId, forum) => apiRequest(`/forums/${forumId}`, 'PUT', forum, true);
+
+/**
+ * Deletes a forum.
+ * @param {string} forumId Forum ID.
+ * @returns {Promise<void>} No response on success.
+ */
+export const deleteForum = async (forumId) => apiRequest(`/forums/${forumId}`, 'DELETE', null, true);
+
+/**
+ * Fetches all posts in a specific forum.
+ * @param {string} forumId Forum ID.
+ * @returns {Promise<any>} List of posts.
  */
 export const fetchPostsByForum = async (forumId) => apiRequest(`/posts?forumId=${forumId}`);
 
 /**
- * Fügt einen neuen Kommentar zu einem Forum hinzu.
- * @param {string} forumId Die ID des Forums.
- * @param {object} comment Der Kommentar (z. B. `{ content: "Kommentartext" }`).
- * @returns {Promise<any>} Die Antwort des Servers (hinzugefügter Kommentar).
+ * Creates a new post in a forum.
+ * @param {object} postData { forumId, content }
+ * @returns {Promise<any>} Created post.
  */
-export const addCommentToForum = async (forumId, comment) =>
-    apiRequest(`/forums/${forumId}/comments`, 'POST', comment, true);
+export const createPost = async (postData) => apiRequest('/posts', 'POST', postData, true);
 
 /**
- * Holt alle Kommentare eines Forums.
- * @param {string} forumId Die ID des Forums.
- * @returns {Promise<any>} Eine Liste der Kommentare.
+ * Deletes a specific post.
+ * @param {string} postId Post ID.
+ * @returns {Promise<void>} No response on success.
  */
-export const fetchCommentsByForum = async (forumId) =>
-    apiRequest(`/forums/${forumId}/comments`, 'GET');
+export const deletePost = async (postId) => apiRequest(`/posts/${postId}`, 'DELETE', null, true);
 
 /**
- * Führt den Login durch und gibt den Token zurück.
- * @param {object} credentials Die Login-Daten (z. B. Benutzername und Passwort).
- * @returns {Promise<string>} Der Token bei Erfolg.
+ * Fetches posts created by a specific user.
+ * @param {string} username Username.
+ * @returns {Promise<any>} List of user posts.
+ */
+export const fetchPostsByUser = async (username) => apiRequest(`/posts/user/${username}`);
+
+/**
+ * Fetches details of a specific user.
+ * @param {string} userId User ID.
+ * @returns {Promise<any>} User details.
+ */
+export const fetchUserById = async (userId) => apiRequest(`/users/${userId}`, 'GET', null, true);
+
+/**
+ * Adds a comment to a post.
+ * @param {string} postId Post ID.
+ * @param {object} commentData { content }
+ * @returns {Promise<any>} Created comment.
+ */
+export const addCommentToPost = async (postId, commentData) => apiRequest(`/posts/${postId}/comments`, 'POST', commentData, true);
+
+/**
+ * Fetches all comments on a specific post.
+ * @param {string} postId Post ID.
+ * @returns {Promise<any>} List of comments.
+ */
+export const fetchCommentsByPost = async (postId) => apiRequest(`/posts/${postId}/comments`, 'GET');
+
+/**
+ * Logs in a user and returns a token.
+ * @param {object} credentials { username, password }
+ * @returns {Promise<string>} Token on success.
  */
 export const login = async (credentials) => {
     const response = await apiRequest('/auth/login', 'POST', credentials);
-    return response.token; // Token zurückgeben
+    return response.token; // Return token
 };
 
 /**
- * Registriert einen neuen Benutzer.
- * @param {object} credentials Die Registrierungsdaten (z. B. Benutzername, Passwort).
- * @returns {Promise<void>} Keine Antwort bei Erfolg.
+ * Registers a new user.
+ * @param {object} credentials { username, password }
+ * @returns {Promise<void>} No response on success.
  */
 export const register = async (credentials) => apiRequest('/auth/register', 'POST', credentials);
+
+/**
+ * Logs out the user by removing the token and redirecting to login.
+ */
+export const logout = () => {
+    localStorage.removeItem('token'); // Remove token
+    window.location.href = '/login'; // Redirect to login
+};
