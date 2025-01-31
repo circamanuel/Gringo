@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: service.UserServiceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.057 s <<< FAILURE! -- in service.UserServiceTest
-service.UserServiceTest.createUserShouldSaveUserWithEncodedPassword -- Time elapsed: 0.057 s <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.541 s <<< FAILURE! -- in service.UserServiceTest
+service.UserServiceTest.createUserShouldSaveUserWithEncodedPassword -- Time elapsed: 0.536 s <<< ERROR!
 org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
 
 Unnecessary stubbings detected.

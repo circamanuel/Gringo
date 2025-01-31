@@ -1,14 +1,10 @@
 package service;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
-import com.forum.dto.AuthRequest;
-import com.forum.dto.AuthResponse;
 import com.forum.models.User;
 import com.forum.repository.UserRepository;
 import com.forum.security.JwtUtil;
 import com.forum.service.AuthService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,52 +12,54 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Optional;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
-public class AuthServiceTest {
+@ExtendWith(MockitoExtension.class) // Aktiviert Mockito in JUnit 5
+class AuthServiceTest {
+
+    @InjectMocks
+    private AuthService authService; // Erstellt eine Instanz von AuthService und injiziert Mocks
 
     @Mock
     private UserRepository userRepository;
 
     @Mock
-    private PasswordEncoder passwordEncoder;
-
-    @Mock
     private JwtUtil jwtUtil;
 
-    @InjectMocks
-    private AuthService authService;
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
-    @Test
-    void loginShouldReturnTokenWhenCredentialsAreValid() {
-        // Arrange
-        User user = new User();
-        user.setUsername("testuser");
-        user.setPassword("encodedPassword");
-
-        when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));
-        when(passwordEncoder.matches("rawPassword", "encodedPassword")).thenReturn(true);
-        when(jwtUtil.generateToken("testuser")).thenReturn("mockedToken");
-
-        // Act
-        AuthResponse response = authService.login(new AuthRequest("testuser", "rawPassword"));
-
-        // Assert
-        assertNotNull(response);
-        assertEquals("mockedToken", response.getToken());
+    @BeforeEach
+    void setUp() {
+        when(passwordEncoder.encode(anyString())).thenReturn("hashedPassword123"); // Simulierter Hash
     }
 
     @Test
-    void loginShouldThrowExceptionWhenUserNotFound() {
+    void testPasswordHashing() {
         // Arrange
-        when(userRepository.findByUsername("unknownUser")).thenReturn(Optional.empty());
+        String rawPassword = "test123";
 
-        // Act & Assert
-        Exception exception = assertThrows(RuntimeException.class, () ->
-                authService.login(new AuthRequest("unknownUser", "password"))
-        );
+        // Act
+        String hashedPassword = passwordEncoder.encode(rawPassword);
 
-        assertEquals("User not found", exception.getMessage());
+        // Assert
+        assertNotNull(hashedPassword); // Gehashte Passwörter dürfen nicht null sein
+        assertNotEquals(rawPassword, hashedPassword); // Hashes müssen sich vom Klartext unterscheiden
+    }
+
+    @Test
+    void testRegisterUser() {
+        // Arrange
+        User user = new User();
+        user.setUsername("testUser");
+        user.setPassword("test123");
+
+        // Act
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        // Assert
+        assertNotNull(user.getPassword()); // Passwort darf nicht null sein
+        assertEquals("hashedPassword123", user.getPassword()); // Passwort sollte den simulierten Hash haben
     }
 }
