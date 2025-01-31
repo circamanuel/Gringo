@@ -1,4 +1,4 @@
-Hier ist die aktualisierte Version des README-Files mit dem Hinweis auf die Verwendung von ChatGPT:
+
 
 ---
 
