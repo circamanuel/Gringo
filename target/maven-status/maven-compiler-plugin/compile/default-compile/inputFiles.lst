@@ -18,6 +18,7 @@ C:\Users\manu_\Desktop\Gringo\src\main\java\com\forum\dto\PostDTO.java
 C:\Users\manu_\Desktop\Gringo\src\main\java\com\forum\models\Comment.java
 C:\Users\manu_\Desktop\Gringo\src\main\java\com\forum\dto\CommentDTO.java
 C:\Users\manu_\Desktop\Gringo\src\main\java\com\forum\repository\CommentRepository.java
+C:\Users\manu_\Desktop\Gringo\src\main\java\com\forum\config\WebConfig.java
 C:\Users\manu_\Desktop\Gringo\src\main\java\com\forum\repository\UserRepository.java
 C:\Users\manu_\Desktop\Gringo\src\main\java\com\forum\security\SecurityConfig.java
 C:\Users\manu_\Desktop\Gringo\src\main\java\com\forum\service\PostService.java

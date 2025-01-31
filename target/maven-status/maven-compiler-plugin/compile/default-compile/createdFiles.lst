@@ -9,8 +9,10 @@ com\forum\dto\AuthResponse.class
 com\forum\controller\PostController.class
 com\forum\service\PostService.class
 com\forum\models\Comment.class
+com\forum\config\WebConfig$1.class
 com\forum\exception\GlobalExceptionHandler.class
 com\forum\repository\PostRepository.class
+com\forum\config\WebConfig.class
 com\forum\service\UserService.class
 com\forum\ForumApplication.class
 com\forum\dto\CommentDTO.class
