@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
-Test set: AuthControllerTest
+Test set: controller.ForumControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.357 s <<< FAILURE! -- in AuthControllerTest
-AuthControllerTest.testRegisterUser -- Time elapsed: 0.406 s <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! -- in controller.ForumControllerTest
+controller.ForumControllerTest.testCreateForum -- Time elapsed: 0.015 s <<< ERROR!
 org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:270)
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:233)
@@ -20,8 +20,8 @@ org.springframework.dao.DataIntegrityViolationException: could not execute state
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218)
-	at jdk.proxy2/jdk.proxy2.$Proxy112.deleteAll(Unknown Source)
-	at AuthControllerTest.setUp(AuthControllerTest.java:26)
+	at jdk.proxy2/jdk.proxy2.$Proxy121.deleteAll(Unknown Source)
+	at controller.ForumControllerTest.setUp(ForumControllerTest.java:28)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -124,7 +124,7 @@ Caused by: org.hibernate.exception.ConstraintViolationException: could not execu
 	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
 	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
 	... 90 more
-Caused by: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
 	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)

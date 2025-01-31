@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
-Test set: AuthControllerTest
+Test set: controller.AuthControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.357 s <<< FAILURE! -- in AuthControllerTest
-AuthControllerTest.testRegisterUser -- Time elapsed: 0.406 s <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.045 s <<< FAILURE! -- in controller.AuthControllerTest
+controller.AuthControllerTest.testRegisterUser -- Time elapsed: 0.029 s <<< ERROR!
 org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:270)
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:233)
@@ -21,7 +21,7 @@ org.springframework.dao.DataIntegrityViolationException: could not execute state
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218)
 	at jdk.proxy2/jdk.proxy2.$Proxy112.deleteAll(Unknown Source)
-	at AuthControllerTest.setUp(AuthControllerTest.java:26)
+	at controller.AuthControllerTest.setUp(AuthControllerTest.java:28)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

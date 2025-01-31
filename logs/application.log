@@ -2454,3 +2454,618 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'markus' for 
     from
         forum f1_0
 2025-01-31 20:33:11 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-01-31 20:51:54 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 20:51:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-31 20:51:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-31 20:54:17 [main] INFO  AuthControllerTest - Starting AuthControllerTest using Java 17.0.13 with PID 27540 (started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-31 20:54:17 [main] INFO  AuthControllerTest - The following 1 profile is active: "dev"
+2025-01-31 20:54:18 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-31 20:54:18 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 4 JPA repository interfaces.
+2025-01-31 20:54:18 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-31 20:54:18 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.5.Final
+2025-01-31 20:54:19 [main] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-31 20:54:19 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-31 20:54:19 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ff66917
+2025-01-31 20:54:19 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-31 20:54:19 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-31 20:54:19 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-31 20:54:20 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-31 20:54:20 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 20:54:20 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-31 20:54:20 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-31 20:54:20 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-31 20:54:20 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-31 20:54:20 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-31 20:54:20 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-31 20:54:20 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-31 20:54:20 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-31 20:54:20 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-31 20:54:20 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-31 20:54:21 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b9c9bf5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3b399f5a, org.springframework.security.web.context.SecurityContextHolderFilter@41e76252, org.springframework.security.web.header.HeaderWriterFilter@69a3944, org.springframework.security.web.authentication.logout.LogoutFilter@1fc386f8, com.forum.security.JwtFilter@7f53a31f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67376bae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37816ea6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16f2d883, org.springframework.security.web.access.ExceptionTranslationFilter@5b8599c7, org.springframework.security.web.access.intercept.AuthorizationFilter@2b9370cc]
+2025-01-31 20:54:21 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-01-31 20:54:21 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-01-31 20:54:21 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2025-01-31 20:54:21 [main] INFO  AuthControllerTest - Started AuthControllerTest in 4.305 seconds (process running for 5.903)
+2025-01-31 20:54:21 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 20:54:21 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:54:21 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:54:21 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:54:21 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:54:21 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 20:54:21 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:54:22 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 20:54:22 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:54:22 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:54:22 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:54:22 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:54:22 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 20:54:22 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:54:22 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 20:54:22 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-31 20:54:22 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:54:22 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-31 20:54:22 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:54:22 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 20:54:22 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-31 20:54:22 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:54:22 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-31 20:54:22 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:54:22 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 20:54:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-31 20:54:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-31 20:57:16 [main] INFO  AuthControllerTest - Starting AuthControllerTest using Java 17.0.13 with PID 35200 (started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-31 20:57:16 [main] INFO  AuthControllerTest - The following 1 profile is active: "dev"
+2025-01-31 20:57:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-31 20:57:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+2025-01-31 20:57:17 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-31 20:57:17 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.5.Final
+2025-01-31 20:57:17 [main] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-31 20:57:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-31 20:57:18 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ff66917
+2025-01-31 20:57:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-31 20:57:18 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-31 20:57:18 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-31 20:57:18 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-31 20:57:18 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 20:57:19 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-31 20:57:19 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-31 20:57:19 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-31 20:57:19 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-31 20:57:19 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-31 20:57:19 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-31 20:57:19 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-31 20:57:19 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-31 20:57:19 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-31 20:57:19 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-31 20:57:20 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@79454d8e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ab2e018, org.springframework.security.web.context.SecurityContextHolderFilter@36f80ceb, org.springframework.security.web.header.HeaderWriterFilter@4889fbba, org.springframework.security.web.authentication.logout.LogoutFilter@6785786d, com.forum.security.JwtFilter@7f53a31f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17541204, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69a3944, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e13af1b, org.springframework.security.web.access.ExceptionTranslationFilter@6c9b6332, org.springframework.security.web.access.intercept.AuthorizationFilter@1fc386f8]
+2025-01-31 20:57:20 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-01-31 20:57:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-01-31 20:57:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2025-01-31 20:57:20 [main] INFO  AuthControllerTest - Started AuthControllerTest in 4.392 seconds (process running for 5.248)
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:20 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:57:20 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 20:57:20 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:20 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:57:20 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 20:57:20 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-31 20:57:20 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:57:20 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-31 20:57:20 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 20:57:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-31 20:57:20 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:57:20 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-31 20:57:20 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:57:21 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 20:57:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-31 20:57:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-31 20:57:34 [main] INFO  AuthControllerTest - Starting AuthControllerTest using Java 17.0.13 with PID 17828 (started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-31 20:57:34 [main] INFO  AuthControllerTest - The following 1 profile is active: "dev"
+2025-01-31 20:57:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-31 20:57:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+2025-01-31 20:57:35 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-31 20:57:35 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.5.Final
+2025-01-31 20:57:35 [main] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-31 20:57:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-31 20:57:36 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@647fb583
+2025-01-31 20:57:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-31 20:57:36 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-31 20:57:36 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-31 20:57:36 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-31 20:57:36 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 20:57:37 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-31 20:57:37 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-31 20:57:37 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-31 20:57:37 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-31 20:57:37 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-31 20:57:37 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-31 20:57:37 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-31 20:57:37 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-31 20:57:37 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-31 20:57:37 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-31 20:57:37 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d7c4fcb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@61d527ac, org.springframework.security.web.context.SecurityContextHolderFilter@16e84d93, org.springframework.security.web.header.HeaderWriterFilter@1165a952, org.springframework.security.web.authentication.logout.LogoutFilter@5a23b9d1, com.forum.security.JwtFilter@29d563bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5a5b394, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6018d82c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@498503cb, org.springframework.security.web.access.ExceptionTranslationFilter@1ae23815, org.springframework.security.web.access.intercept.AuthorizationFilter@5c261c74]
+2025-01-31 20:57:38 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-01-31 20:57:38 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-01-31 20:57:38 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2025-01-31 20:57:38 [main] INFO  AuthControllerTest - Started AuthControllerTest in 3.928 seconds (process running for 4.768)
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:38 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:57:38 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 20:57:38 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 20:57:38 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:57:38 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 20:57:38 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-31 20:57:38 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:57:38 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-31 20:57:38 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 20:57:38 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-31 20:57:38 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 20:57:38 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-31 20:57:38 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 20:57:39 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 20:57:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-31 20:57:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-31 21:02:31 [main] INFO  AuthControllerTest - Starting AuthControllerTest using Java 17.0.13 with PID 36816 (started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-31 21:02:31 [main] INFO  AuthControllerTest - The following 1 profile is active: "dev"
+2025-01-31 21:02:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-31 21:02:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 4 JPA repository interfaces.
+2025-01-31 21:02:32 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-31 21:02:33 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.5.Final
+2025-01-31 21:02:33 [main] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-31 21:02:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-31 21:02:33 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@29dcdd1c
+2025-01-31 21:02:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-31 21:02:33 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-31 21:02:33 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-31 21:02:34 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-31 21:02:34 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 21:02:34 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-31 21:02:34 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-31 21:02:34 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-31 21:02:34 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-31 21:02:34 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-31 21:02:34 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-31 21:02:34 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-31 21:02:34 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-31 21:02:34 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-31 21:02:34 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-31 21:02:35 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@31a80c88, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7602c65d, org.springframework.security.web.context.SecurityContextHolderFilter@3e0a112f, org.springframework.security.web.header.HeaderWriterFilter@5b9df3b3, org.springframework.security.web.authentication.logout.LogoutFilter@7b6b99c5, com.forum.security.JwtFilter@220f6a3c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7da1ef46, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1165a952, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a5c2889, org.springframework.security.web.access.ExceptionTranslationFilter@2b76ecd5, org.springframework.security.web.access.intercept.AuthorizationFilter@5a23b9d1]
+2025-01-31 21:02:35 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-01-31 21:02:35 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-01-31 21:02:35 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2025-01-31 21:02:35 [main] INFO  AuthControllerTest - Started AuthControllerTest in 4.081 seconds (process running for 4.962)
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:02:36 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 21:02:36 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 21:02:36 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:02:36 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 21:02:36 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 21:02:36 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-31 21:02:36 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 21:02:36 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-31 21:02:36 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 21:02:36 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-31 21:02:36 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 21:02:36 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-31 21:02:36 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 21:02:36 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 21:02:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-31 21:02:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-31 21:06:15 [main] INFO  AuthControllerTest - Starting AuthControllerTest using Java 17.0.13 with PID 34364 (started by manu_ in C:\Users\manu_\Desktop\Gringo)
+2025-01-31 21:06:15 [main] INFO  AuthControllerTest - The following 1 profile is active: "dev"
+2025-01-31 21:06:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-31 21:06:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2025-01-31 21:06:16 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-31 21:06:16 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.5.Final
+2025-01-31 21:06:17 [main] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-01-31 21:06:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-31 21:06:17 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5546e754
+2025-01-31 21:06:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-31 21:06:17 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2025-01-31 21:06:17 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-31 21:06:18 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-31 21:06:18 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 21:06:18 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.UserRepository
+2025-01-31 21:06:18 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtUtil
+2025-01-31 21:06:18 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.JwtFilter
+2025-01-31 21:06:18 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.CommentRepository
+2025-01-31 21:06:18 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.repository.PostRepository
+2025-01-31 21:06:18 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.controller.ForumController
+2025-01-31 21:06:18 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.ForumService
+2025-01-31 21:06:18 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.service.UserService
+2025-01-31 21:06:18 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.forum.security.SecurityConfig
+2025-01-31 21:06:18 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-31 21:06:19 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@61d527ac, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@498503cb, org.springframework.security.web.context.SecurityContextHolderFilter@2a7b5925, org.springframework.security.web.header.HeaderWriterFilter@1b868ef0, org.springframework.security.web.authentication.logout.LogoutFilter@3962b216, com.forum.security.JwtFilter@73fe7483, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c9b6332, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@572db5ee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@380e3122, org.springframework.security.web.access.ExceptionTranslationFilter@63ccb1b2, org.springframework.security.web.access.intercept.AuthorizationFilter@6d38a81d]
+2025-01-31 21:06:19 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-01-31 21:06:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-01-31 21:06:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2025-01-31 21:06:19 [main] INFO  AuthControllerTest - Started AuthControllerTest in 4.555 seconds (process running for 5.502)
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:06:20 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 21:06:20 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 21:06:20 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2025-01-31 21:06:20 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 21:06:20 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2025-01-31 21:06:20 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        forum 
+    where
+        id=?
+2025-01-31 21:06:20 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1451, SQLState: 23000
+2025-01-31 21:06:20 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Cannot delete or update a parent row: a foreign key constraint fails (`forum_db`.`post`, CONSTRAINT `post_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `forum` (`id`))
+2025-01-31 21:06:20 [main] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements
+2025-01-31 21:06:20 [main] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.id,
+        f1_0.created_by,
+        f1_0.description,
+        f1_0.title 
+    from
+        forum f1_0
+2025-01-31 21:06:20 [main] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/forums
+2025-01-31 21:06:20 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31 21:06:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-31 21:06:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

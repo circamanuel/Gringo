@@ -1,2 +1,6 @@
+controller\ForumControllerTest.class
+service\AuthServiceTest.class
 AuthControllerTest.class
+service\UserServiceTest.class
+controller\AuthControllerTest.class
 ForumControllerTest.class

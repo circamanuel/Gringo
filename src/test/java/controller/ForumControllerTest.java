@@ -1,7 +1,6 @@
-
+package controller;
 
 import com.forum.ForumApplication;
-
 import com.forum.repository.ForumRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,14 +9,12 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(classes = ForumApplication.class)
 @AutoConfigureMockMvc
-@Transactional // Stellt sicher, dass Tests keine DB-Probleme verursachen
 public class ForumControllerTest {
 
     @Autowired
@@ -28,7 +25,7 @@ public class ForumControllerTest {
 
     @BeforeEach
     public void setUp() {
-        forumRepository.deleteAll(); // Löscht alle Daten vor jedem Test
+        forumRepository.deleteAll(); // Bereinigt die Datenbank vor jedem Test
     }
 
     @Test
@@ -39,6 +36,6 @@ public class ForumControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer your_test_token") // Falls Auth verwendet wird
                         .content(forumJson))
-                .andExpect(status().isOk()); // HTTP 200 oder anpassen, falls anderes erwartet wird
+                .andExpect(status().isOk());
     }
 }
